@@ -1,0 +1,305 @@
+.head{
+    width: 21.37913rem;
+    height: 3.67175rem;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin: 25px 1rem;
+}
+.head_p{
+    width: 20.49113rem;
+    height: 2.21838rem;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-left: 1rem;
+}
+.container{
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    display: block;
+}
+.main{
+    width: 100%;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#header{
+    width: 36.8125rem;
+    height: 4.125rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.25rem;
+    border: 0.5px solid #E1D9D9;
+    background: linear-gradient(180deg, #005473 0%, #0481AF 100%);
+}
+#header span{
+    color: var(--basic-white, #FFF);
+    font-family: Inter;
+    font-size: 1.3125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+#main2{
+    width: 100%;
+    height: 16.625rem;
+    flex-shrink: 0;
+    background-color: #CAE8EC;
+    display: flex;
+    justify-content: space-between;
+}
+#main3{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#item1{
+    width: 40.625rem;
+    height: 11.1875rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-shrink: 0;
+    border-radius: 2.03125rem;
+    background: linear-gradient(186deg, #CAE8EC 4.53%, #FCC018 272.47%);
+}
+#item2{
+    width: 40.625rem;
+    height: 11.1875rem;
+    position: relative;
+    flex-shrink: 0;
+    border-radius: 2.03125rem;
+    background: url('../assets/Medicines/256.png');
+    
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; 
+}
+#btn_g{
+    width: 8.54819rem;
+    height: 2.17825rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.1285rem;
+    border: 0px solid var(--basic-white, #FFF);
+    background: linear-gradient(90deg, #277793 0.04%, #0C8BDA 99.91%);
+}
+#btn_g span{
+    color: var(--basic-white, #FFF);
+    font-family: Inter;
+    font-size: 0.62069rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+#con{
+    width: 16.65625rem;
+    height: 4.92875rem;
+    flex-shrink: 0;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+
+}
+#con {
+    font-family: Inter;
+    font-size: 1.38125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: justify;
+}
+#buy{
+    /* width: 50%;
+    height: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+#box_img{
+    width: 10.79681rem;
+    height: 8.38644rem;
+}
+#btn-or{
+    width: 8.54819rem;
+    height: 2.26225rem;
+    flex-shrink: 0;
+    cursor: pointer;
+    border-radius: 1.1285rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3.16px solid var(--basic-white, #FFF);
+    background: linear-gradient(90deg, #0EC0DA 0.04%, #0C8BDA 99.91%);
+    position: absolute;
+    bottom: 1rem;
+    right: 5rem;
+}
+#btn-order span{
+
+    color: var(--basic-white, #FFF);
+    font-family: Inter;
+    font-size: 0.62069rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+#second{
+    width: 30%;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+#second span{
+    color: #005473;
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 30px 0;
+}
+#input_box{
+    width: 24.625rem;
+    height: 2.6875rem;
+    flex-shrink: 0;
+    border-radius: 1.0625rem;
+    border: 0.5px solid #54A8C4;
+    background: var(--basic-white, #FFF);
+    display: flex;
+    align-items: center;
+    
+}
+#input_box img{
+    width: 0.99494rem;
+    height: 1.32719rem;
+    margin: 10px;
+}
+#input_box span{
+    color: #B3B3B3;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+#input_box input{
+    background: none;
+    outline: none;
+    width: 20rem;
+    border: none;
+    color: #8B9799;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+#sub{
+    width: 17.4375rem;
+    height: 3.125rem;
+    border-radius: 0.9375rem;
+    background: #005473;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+}
+#sub span{
+    color: var(--basic-white, #FFF);
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+#doct{
+    position: absolute;
+    bottom: 0;
+    width: 20rem;
+    height: 15rem;
+}
+#group_img{
+    position: absolute;
+    right: 0;
+}
+#third{
+    width: 30%;
+    display: flex;
+    position: relative;
+}
+#first{
+    width: 30%;
+}
+@media screen and (max-width: 768px) {
+    #header{
+        width: 100%;
+        margin: 10px;
+    }
+    #main2{
+        width: 100%;
+        height: auto;
+        display: block;
+        padding: 1rem;
+    }
+    #main3{
+        display: block;
+        height: auto;
+        padding: 25px;
+
+    }
+    #item1{
+        width: 100%;
+        height: auto;
+        display: block;
+        text-align: center;
+        /* overflow: hidden; */
+    
+    }
+    #con{
+        margin-top: 10px;
+    }
+    #item2{
+        width: 100%;
+        margin-top: 1rem;
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+   #third{
+    display: none;
+   }
+    #second{
+        width: 100%;
+        height: auto;
+    }
+    #btn-or{
+        position: static;
+    }
+}
