@@ -4,6 +4,7 @@ import search from "./assets/Path 26.png";
 import user from "./assets/Group 3149.png";
 import hamburger from "./assets/hamburger.svg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -38,8 +39,14 @@ const Navbar = () => {
           <div id="box2">
             <div className="box">
               <ul>
+              <Link className="navlist" to=''>
+
                 <li>Home</li>
+              </Link>
+              <Link className="navlist" to='Medicines'>
+
                 <li>Contact Us</li>
+              </Link>
               </ul>
             </div>
 

@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background-image {
+    position: absolute;
+    max-width: 100%;
+}
+
+.front-images {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Header-div-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-start: 80px;
+}
+
+.Header-div-3 {
+    margin-block-start: 10px;
+}
+
+.background-image-2 {
+    position: absolute;
+}
+
+.front-images-2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btn-1 {
+    border: none;
+    border-radius: 20px;
+}
+
+.doctor-collapse-1 {
+    position: absolute;
+}
+
+.doctor-collapse-2 {
+    position: relative;
+}
+
+.grid-images {
+    display: grid;
+}
+
+.part-3 {
+    margin-top: 220px;
+}
+
+.image-container {
+    border: 1px solid grey;
+    width: 180px;
+    align-items: center;
+    padding-left: 20px;
+    border-radius: 20px;
+}
+
+.flex-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-block-start: 20px;
+}
+
+.flex-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-block-start: 40px;
+}
+
+.box-1 {
+    margin-block-start: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.box-1-image {
+    position: absolute;
+    max-height: 200px;
+    /* width: 100%; */
+}
+
+.first-one,
+.doctor-in-mirror,
+.doctor-image-2 {
+    position: relative;
+}
+
+.first-one {
+    display: grid;
+}
+
+.doctor-image-1 {
+    position: absolute;
+}
+
+.displaying-flex {
+    display: flex;
+}
+
+.doctor-in-mirror {
+    display: grid;
+}
+
+.phone-image {
+    position: absolute;
+}
+
+.inside-phone-image {
+    display: grid;
+    position: relative;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer {
+    background-color: #0f607d;
+    padding: 70px 0;
+    margin-block-start: 40px;
+}
+
+.footer-col {
+    width: 14.2%;
+    padding-left: 30px;
+}
+
+.footer-col h4 {
+    font-size: 28px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col li a {
+    color: white;
+    text-decoration: none;
+}
+
+.Social-links a {
+    text-decoration: none;
+    padding: 5px;
+    background-color: white;
+    margin: 6px;
+    border-radius: 50%;
+}
