@@ -229,6 +229,7 @@
     align-items: center;
     justify-content: center;
     margin: 50px 0;
+    cursor: pointer;
 }
 #sub span{
     color: var(--basic-white, #FFF);
@@ -256,7 +257,96 @@
 #first{
     width: 30%;
 }
+/* Medical_shop_list css */
+#shop{
+    width: 100%;
+    height: auto;
+}
+#card-body{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.card_item{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    margin-top: 1rem;
+    margin-bottom: 7.5rem;
+
+}
+.card_img{
+    width: 16.48856rem;
+    height: 13.548rem;
+    border-radius: 2.8125rem;
+}
+#star_box{
+    width: 4.64456rem;
+    height: 1.8125rem;
+    border-radius: 0.1875rem;
+    background: #005473;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#star_box span{
+    color: var(--basic-white, #FFF);
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+#card-btn{
+    width: 26.8125rem;
+    height: 3.71781rem;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.9375rem;
+    border: 2px solid #3F849C;
+    background: #005473;
+    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.20);
+}
+#card-btn span{
+    color: var(--basic-white, #FFF);
+    font-family: Inter;
+    font-size: 1.1875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.medical_store_name{
+    color: #000;
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
 @media screen and (max-width: 768px) {
+    .card{
+        width: auto;
+        justify-content: center;
+    }
+    #card-btn{
+        width: 100%;
+    }
     #header{
         width: 100%;
         margin: 10px;
