@@ -5,6 +5,7 @@ import insta from "./assets/Instagram.svg"
 import twi from "./assets/twitter.svg"
 import appStore from "./assets/AppStore.svg"
 import play from "./assets/PlayStore.svg"
+import { Link } from "react-router-dom"
 
 
 const Footer = () => {
@@ -33,7 +34,6 @@ const Footer = () => {
             <div>
 
                 <ul className="foot-ul">
-                    <li>Search for doctors</li>
                     <li>Search for hospital</li>
                     <li>Search medical shop</li>
                     <li>Book lab test</li>
@@ -51,7 +51,9 @@ const Footer = () => {
 
                 <ul className="foot-ul">
                     <div>
+                    <Link className="link" to='/Doc_Registration_form'>
                         <li> Doc Registration form</li>
+                    </Link>
                         <li>Doc Search consult</li>
                         <li>Doc Search health feed</li>
                         <li>Doc Dearch profile</li>

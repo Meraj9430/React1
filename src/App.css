@@ -197,7 +197,9 @@
   border: 0.85px solid #B3B3B3;
   background: var(--basic-white, #FFF);
 }
-
+.link{
+  text-decoration: none;
+}
 /* menu-css */
 #menu {
   width: 100%;

@@ -6,6 +6,7 @@ import group from "../assets/Medicines/Group.svg";
 import location from "../assets/location.svg";
 import Medical_shop_list from "./sub_components/Medical_shop_list";
 import { useState } from "react";
+const API=import.meta.env.VITE_API 
 
 const Medicines = () => {
   const [deta, setdeta] = useState("");
@@ -13,7 +14,7 @@ const Medicines = () => {
   const [toggle, settoggle] = useState(true);
   const handileClick = async () => {
     if (deta) {
-      const res = await fetch("https://dummyjson.com/products?limit=10");
+      const res = await fetch(`${API}/products`);
       try {
         const r = await res.json();
         setapiDeta(r.products);
@@ -23,7 +24,7 @@ const Medicines = () => {
       }
     }
   };
-
+  console.log(API)
   return (
     <>
       {toggle ? (
