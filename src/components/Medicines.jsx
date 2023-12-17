@@ -14,10 +14,10 @@ const Medicines = () => {
   const [toggle, settoggle] = useState(true);
   const handileClick = async () => {
     if (deta) {
-      const res = await fetch(`${API}/products`);
+      const res = await fetch(`${API}/api/doctor/GetDoctor`);
       try {
         const r = await res.json();
-        setapiDeta(r.products);
+        setapiDeta(r.data);
         settoggle(false);
       } catch (error) {
         console.log(error);

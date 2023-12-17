@@ -12,11 +12,9 @@
     padding: 5px;
     display: flex;
     align-items: center;
+    justify-content: center;
     
     
-}
-.D_r_p_file{
-    display: none;
 }
 #DRP_btn{
     width: 100%;
@@ -96,6 +94,7 @@
     outline: none;
     border: none;
     font-size: large;
+    background:none;
 
 }
 .DRP_form_deta{

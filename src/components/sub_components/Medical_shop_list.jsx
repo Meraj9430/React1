@@ -7,9 +7,9 @@ import star from "../../assets/Medicines/icons8-star-60 (1) 1.png";
 const Medical_shop_list = ({ apideta }) => {
   const card_deta = apideta.map((e) => (
     < >
-      <div key={e.id}  className="card_item">
+      <div key={e._id}  className="card_item">
         <div>
-          <img className="card_img" src={e.thumbnail} alt="img" />
+          <img className="card_img" src={e.photo} alt="img" />
         </div>
         <div>
           <span className="medical_store_name">{e.title}</span>
