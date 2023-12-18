@@ -1,37 +1,67 @@
 // import React from 'react'
 import "../components_css/Doc_Registration_form.css";
-import camera from "../assets/pdf.png";
 import { useState } from "react";
 import axios from "axios";
 import FormData from "form-data";
 import Loader from "./sub_components/Loader";
 
-// const arr = [
-//   "Gynaecologist",
-//   "Cardiologist",
-//   "ENT specialist",
-//   "Pediatrician",
-//   "Dermatologist",
-//   "Neurologist",
-//   "Oncologist",
-//   "Orthopaedist",
-//   "Endocrinologist",
-//   "General Medicine",
-//   "Anaesthesiologist",
-//   "Dentist",
-//   "Nephrologist",
-//   "Ophthalmology",
-//   "Psychiatrists",
-//   "Pulmonologist",
-//   "Radiologist",
-//   "Geriatrician",
-//   "Veterinarian",
-//   "Allergist",
-//   "Audiologist",
-//   "Pathologist",
-//   "Surgeon",
-//   "Dietitian",
-// ];
+const arr = [
+  "Gynaecologist",
+  "Cardiologist",
+  "ENT specialist",
+  "Pediatrician",
+  "Dermatologist",
+  "Neurologist",
+  "Oncologist",
+  "Orthopaedist",
+  "Endocrinologist",
+  "General Medicine",
+  "Anaesthesiologist",
+  "Dentist",
+  "Nephrologist",
+  "Ophthalmology",
+  "Psychiatrists",
+  "Pulmonologist",
+  "Radiologist",
+  "Geriatrician",
+  "Veterinarian",
+  "Allergist",
+  "Audiologist",
+  "Pathologist",
+  "Surgeon",
+  "Dietitian",
+];
+
+const arr2 =[
+  " Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttarakhand",
+  "Uttar Pradesh",
+  "West Bengal",
+]
 
 const Doc_Registration_form = () => {
   const API = import.meta.env.VITE_API;
@@ -56,32 +86,14 @@ const Doc_Registration_form = () => {
   const [physical_info, setPhysical_info] = useState("");
   const [virtual, setVirtual] = useState("");
   const [Photo, setPhoto] = useState(null);
+  const [Photo2, setPhoto2] = useState(null);
+  const [Photo3, setPhoto3] = useState(null);
+  const [Photo4, setPhoto4] = useState(null);
+  const [Photo5, setPhoto5] = useState(null);
   const [loader, setLoader] = useState(false);
 
   const submitForm = async (e) => {
     e.preventDefault();
-    console.log(
-      name,
-      email,
-      mobile,
-      qualification,
-      specialization,
-      experience,
-      gender,
-      age,
-      blood_group,
-      house_street_no,
-      colony_locality,
-      city,
-      state,
-      country,
-      pincode,
-      extra_mobile,
-      languages,
-      physical_info,
-      virtual,
-      Photo
-    );
     const det = new FormData();
     setLoader(true)
     det.append("name", name);
@@ -104,6 +116,10 @@ const Doc_Registration_form = () => {
     det.append("physical_info", physical_info);
     det.append("virtual", virtual);
     det.append("Photo", Photo);
+    det.append("Photo2", Photo2);
+    det.append("Photo3", Photo3);
+    det.append("Photo4", Photo4);
+    det.append("Photo5", Photo5);
     try {
      const res = await axios({
         method: "post",
@@ -213,13 +229,19 @@ const Doc_Registration_form = () => {
                     Specialisation <span>*</span>
                   </label>
                   <div className="Doc_input_box">
-                    <input
-                      id="name"
+                    <select
                       value={specialization}
                       onChange={(e) => setSpecialization(e.target.value)}
-                      type="text"
-                      required
-                    />
+                      name=""
+                      id=""
+                    >
+                      <option value="">Select an option</option>
+                      {arr.map((e,i)=>(
+                         <option key={i} value={e}>{e}</option> 
+                      ))}
+                      
+                    </select>
+
                   </div>
                 </div>
                 <div className="Doc_box">
@@ -343,13 +365,18 @@ const Doc_Registration_form = () => {
                     State <span>*</span>
                   </label>
                   <div className="Doc_input_box">
-                    <input
-                      id="name"
+                      <select
                       value={state}
                       onChange={(e) => setState(e.target.value)}
-                      type="text"
-                      required
-                    />
+                      name=""
+                      id=""
+                    >
+                      <option value="">Select an option</option>
+                      {arr2.map((e,i)=>(
+                         <option key={i} value={e}>{e}</option> 
+                      ))}
+                      
+                    </select>
                   </div>
                 </div>
 
@@ -484,10 +511,11 @@ const Doc_Registration_form = () => {
                     <div>
 
                     <input
-                    
+                      required
                       type="file"
                       name=""
                       id="MRP"
+                      onChange={(e) => setPhoto2(e.target.files[0])}
                       />
                       </div>
                   </div>
@@ -499,7 +527,7 @@ const Doc_Registration_form = () => {
                   <div className="Doc_input_box">
                    <div>
 
-                    <input  type="file" name="" id="DP" />
+                    <input  type="file" name="" id="DP" required onChange={(e) => setPhoto3(e.target.files[0])}/>
                    </div>
                   </div>
                 </div>
@@ -509,8 +537,17 @@ const Doc_Registration_form = () => {
                   </label>
                   <div className="Doc_input_box">
                     <div>
-
-                    <input  id="ID" type="file" name="" />
+                    <input  id="ID" type="file" name="" required onChange={(e) => setPhoto4(e.target.files[0])}/>
+                    </div>
+                  </div>
+                </div>
+                <div className="Doc_box">
+                  <label htmlFor="Email Address">
+                    Add Photo <span>*</span>
+                  </label>
+                  <div className="Doc_input_box">
+                    <div>
+                    <input  id="ID" type="file" name="" required onChange={(e) => setPhoto5(e.target.files[0])}/>
                     </div>
                   </div>
                 </div>
