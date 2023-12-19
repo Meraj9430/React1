@@ -28,25 +28,26 @@ const Navbar = () => {
                 onClick={() => setToggle(!toggle)}
                 alt=""
               />
-            </div>           
-              <div id="search">
-                <input type="text" placeholder="SEARCH DOCTORS & HOSPITAL" />
-                <div id="search-btn">
-                  <img src={search} alt="" />
-                </div>
+            </div>
+            <div id="search">
+              <input type="text" placeholder="SEARCH DOCTORS & HOSPITAL" />
+              <div id="search-btn">
+                <img src={search} alt="" />
               </div>
+            </div>
           </nav>
           <div id="box2">
             <div className="box">
               <ul>
-              <Link className="navlist" to=''>
-
-                <li>Home</li>
-              </Link>
-              <Link className="navlist" to='Medicines'>
-
-                <li>Contact Us</li>
-              </Link>
+                <Link className="navlist" to="">
+                  <li>Home</li>
+                </Link>
+                <Link className="navlist" to="">
+                  <li>Sheid</li>
+                </Link>
+                <Link className="navlist" to="Medicines">
+                  <li>Contact Us</li>
+                </Link>
               </ul>
             </div>
 
@@ -54,23 +55,32 @@ const Navbar = () => {
               <img src={user} alt="" />
             </div>
           </div>
-         {toggle && <div id="mobile-menu">
-            <div id="search1">
-              <input type="text" placeholder="SEARCH DOCTORS & HOSPITAL" />
-              <div id="search1-btn">
-                <img src={search} alt="" />
+          {toggle && (
+            <div id="mobile-menu">
+              <div id="search1">
+                <input type="text" placeholder="SEARCH DOCTORS & HOSPITAL" />
+                <div id="search1-btn">
+                  <img src={search} alt="" />
+                </div>
               </div>
-            </div>
-            <div>
-              <ul>
-                <li>Home</li>
-                <li>Contact</li>
-              </ul>
               <div>
-                <img src={user} alt="" />
+                <ul>
+                <Link className="navlist" to="">
+                  <li>Home</li>
+                </Link>
+                <Link className="navlist" to="">
+                  <li>Sheid</li>
+                </Link>
+                <Link className="navlist" to="Medicines">
+                  <li>Contact Us</li>
+                </Link>
+                </ul>
+                <div>
+                  <img src={user} alt="" />
+                </div>
               </div>
             </div>
-          </div>}
+          )}
         </div>
       </div>
     </div>

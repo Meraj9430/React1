@@ -217,10 +217,190 @@
     width: 100%;
 }
 
+/* Doctor List Css */
+.Doctor_info{
+    width: 100%;
+    height: auto;
+    background-color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+.doc_info_left{
+    display: flex;
+    width: auto;
+    justify-content: space-evenly;
+}
+.doc_info_left img{
+    width: 12.4375rem;
+    height: 13.4375rem;
+    border-radius: 0.9375rem;
+    margin: 1rem;
+    border: 2px solid black;
+}
+#info_Doc_Name{
+    color: #1F5E82;
+    font-family: Inter;
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.doc_info_sp{
+    width: 8.0625rem;
+    height: 2.375rem;
+    border-radius: 0.4375rem;
+    background: #3FA536;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.doc_info_sp span{
+    color: var(--Basic-White, #FFF);
+    font-family: Inter;
+    font-size: 1.625rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+} 
+.info_doc_Add{
+    color: #000;
+    font-family: Inter;
+    font-size: 1.625rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 1.5rem;
+}
+.info_btn{
+    width: 28rem;
+    height: 10.0625rem;
+    border-radius: 0.8125rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: radial-gradient(182.7% 134.21% at 97.4% 6.15%, rgba(52, 83, 129, 0.44) 0%, #378493 26.04%, #146480 49.48%, #42869E 69.27%, rgba(30, 71, 85, 0.74) 87.5%, rgba(236, 250, 252, 0.85) 100%);
+}
+.info_back_btn{
+    width: 28rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.info_Appointment{
+    color: var(--Basic-White, #FFF);
+    font-family: Inter;
+    font-size: 1.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.info_notbook{
+    color: var(--Basic-White, #FFF);
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.info_today{
+    color: #1F5E82;
+    font-family: Inter;
+    font-size: 1.625rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.D_I{
+    display: flex;
+}
+.ellips{
+    width: 4.0625rem;
+    height: 4.0625rem;
+    background-color: #3FA536;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+.info_doc_like{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.info_doc_like p{
+    text-decoration: underline;
+}
+.ellips p{
+    color: var(--Basic-White, #FFF);
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+}
+.D_I{
+    width: 300px;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+.info_back{
+    width: 9.125rem;
+    height: 3.375rem;
+    border-radius: 1.125rem;
+    border: 2px solid #005473;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+.info_back span{
+    color: #005473;
+    font-family: Inknut Antiqua;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  
+}
 
 @media screen and (max-width: 768px) {
-    #FD_box{
+    /* Doctor List Css */ 
+    .doc_info_left{
+        display: block;
+    }
+    .doc{
         width: 100%;
+        padding: 10px;
+    }
+    .Doctor_info{
+        display: block;
+    }
+    .info_btn{
+        width: 100%;
+        
+    }
+    .doc_info_right{
+        width: 100%;
+        
+    }
+    .info_back_btn{
+        width: 100%;
+    }
+    .info_doc_Add{
+        width: 100%;
+    }
+    /* Doctor List Css */
+
+    #FD_box{
+        width: 100% ;
         height: auto;
     }
     #fd_item{
