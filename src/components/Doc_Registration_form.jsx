@@ -5,6 +5,7 @@ import axios from "axios";
 import FormData from "form-data";
 import Loader from "./sub_components/Loader";
 
+
 const arr = [
   "Gynaecologist",
   "Cardiologist",
@@ -91,8 +92,10 @@ const Doc_Registration_form = () => {
   const [Photo4, setPhoto4] = useState(null);
   const [Photo5, setPhoto5] = useState(null);
   const [loader, setLoader] = useState(false);
-
+  const [password, setPasswoed] = useState('');
+  
   const submitForm = async (e) => {
+    
     e.preventDefault();
     const det = new FormData();
     setLoader(true)
@@ -120,6 +123,7 @@ const Doc_Registration_form = () => {
     det.append("Photo3", Photo3);
     det.append("Photo4", Photo4);
     det.append("Photo5", Photo5);
+    det.append("password", password);
     try {
      const res = await axios({
         method: "post",
@@ -150,7 +154,7 @@ const Doc_Registration_form = () => {
             </div>
           </div>
           <form id="DRP_form" onSubmit={submitForm}>
-            <div id="DRP_line"></div>
+            {/* <div id="DRP_line"></div> */}
             <div>
               <h1>Profile</h1>
               <div className="DRP_form_deta">
@@ -210,6 +214,21 @@ const Doc_Registration_form = () => {
                     </div>
                   </div>
                 </div>
+
+                <div className="Doc_box">
+                  <label htmlFor="Experience">
+                    Password <span>*</span>
+                  </label>
+                  <div className="Doc_input_box">
+                    <div>
+                      <input
+                        type="password"
+                        onChange={(e) => setPasswoed(e.target.value)}
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
                 <div className="Doc_box">
                   <label htmlFor="Qualification">
                     Qualification <span>*</span>
@@ -234,6 +253,7 @@ const Doc_Registration_form = () => {
                       onChange={(e) => setSpecialization(e.target.value)}
                       name=""
                       id=""
+                      required
                     >
                       <option value="">Select an option</option>
                       {arr.map((e,i)=>(
@@ -268,6 +288,7 @@ const Doc_Registration_form = () => {
                       onChange={(e) => setGender(e.target.value)}
                       name=""
                       id=""
+                      required
                     >
                       <option value="">Select an option</option>
                       <option value="Male">Male</option>
@@ -300,6 +321,7 @@ const Doc_Registration_form = () => {
                       onChange={(e) => setBlood_group(e.target.value)}
                       name=""
                       id=""
+                      required
                     >
                       <option value="">Select an option</option>
                       <option value="O-">O-</option>
@@ -329,13 +351,13 @@ const Doc_Registration_form = () => {
                       value={house_street_no}
                       onChange={(e) => setHouse_street_no(e.target.value)}
                       type="text"
-                      required
+                      
                     />
                   </div>
                 </div>
                 <div className="Doc_box">
                   <label htmlFor="">
-                    Colony/Street/Locality <span>*</span>
+                    Colony/Street/Locality 
                   </label>
                   <div className="Doc_input_box">
                     <input
@@ -343,7 +365,7 @@ const Doc_Registration_form = () => {
                       value={colony_locality}
                       onChange={(e) => setColony_locality(e.target.value)}
                       type="text"
-                      required
+                      
                     />
                   </div>
                 </div>
@@ -370,6 +392,7 @@ const Doc_Registration_form = () => {
                       onChange={(e) => setState(e.target.value)}
                       name=""
                       id=""
+                      required
                     >
                       <option value="">Select an option</option>
                       {arr2.map((e,i)=>(
@@ -390,6 +413,7 @@ const Doc_Registration_form = () => {
                       onChange={(e) => setCountry(e.target.value)}
                       name=""
                       id=""
+                      required
                     >
                       <option value="">Select an option</option>
                       <option value="Bahrain">Bahrain</option>
@@ -446,6 +470,7 @@ const Doc_Registration_form = () => {
                       onChange={(e) => setLanguages(e.target.value)}
                       name=""
                       id=""
+                      required
                     >
                       <option value="">Select an option</option>
                       <option value="Any">Any</option>
@@ -473,6 +498,7 @@ const Doc_Registration_form = () => {
                       onChange={(e) => setPhysical_info(e.target.value)}
                       name=""
                       id=""
+                      required
                     >
                       <option value="">Select an option</option>
                       <option value="no">No</option>
@@ -490,6 +516,7 @@ const Doc_Registration_form = () => {
                       onChange={(e) => setVirtual(e.target.value)}
                       name=""
                       id=""
+                      required
                     >
                       <option value="">Select an option</option>
                       <option value="no">No</option>
@@ -543,11 +570,11 @@ const Doc_Registration_form = () => {
                 </div>
                 <div className="Doc_box">
                   <label htmlFor="Email Address">
-                    Add Photo <span>*</span>
+                    Add Photo 
                   </label>
                   <div className="Doc_input_box">
                     <div>
-                    <input  id="ID" type="file" name="" required onChange={(e) => setPhoto5(e.target.files[0])}/>
+                    <input  id="ID" type="file" name=""  onChange={(e) => setPhoto5(e.target.files[0])}/>
                     </div>
                   </div>
                 </div>

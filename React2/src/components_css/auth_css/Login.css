@@ -1,0 +1,74 @@
+
+ .Form_body{
+    width: 100%;
+    height: 700px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    background: radial-gradient(182.7% 134.21% at 97.4% 6.15%, rgba(52, 83, 129, 0.44) 0%, #378493 26.04%, #146480 49.48%, #42869E 69.27%, rgba(30, 71, 85, 0.74) 87.5%, rgba(236, 250, 252, 0.85) 100%);
+
+} 
+.login-form{
+    margin: 1rem 0;
+}
+.form {
+    /* position: relative; */
+    /* z-index: 1; */
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form button {
+    text-transform: uppercase;
+    outline: 0;  
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: 1.375rem;
+    color: #FFF;
+    font-family: Inria Serif;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background: radial-gradient(182.7% 134.21% at 97.4% 6.15%, rgba(52, 83, 129, 0.44) 0%, #378493 26.04%, #146480 49.48%, #42869E 69.27%, rgba(30, 71, 85, 0.74) 87.5%, rgba(236, 250, 252, 0.85) 100%);
+}
+
+.form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+.form .message a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+
+/* .container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+}  */

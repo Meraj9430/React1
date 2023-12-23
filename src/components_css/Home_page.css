@@ -1,0 +1,143 @@
+.Home_page{
+    width: 100%;
+    height: auto;
+}
+.Home_header{
+    width: 100%;
+    height: 25.4375rem;
+    background: radial-gradient(877.61% 104.96% at 100.31% 42.89%, #0F607D 0%, #49909D 26.04%, #277793 49.48%, #42869E 75%, rgba(10, 163, 185, 0.94) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Header_left{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.H_L_T{
+    width: 21.125rem;
+    color: var(--Basic-White, #FFF);
+    font-family: Inter;
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.H_L_p{
+    width: 20.375rem;
+    height: 5.61975rem;
+    color: var(--Basic-White, #FFF);
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.Home_h_btn{
+    width: 14.75rem;
+    height: 4.125rem;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2.125rem;
+    border: 2px solid #005473;
+    background: var(--Basic-White, #FFF);
+}
+.Home_h_btn span{
+    color: #005473;
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.Header_right{
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 50%;
+}
+.Headerimg{
+    position: absolute;
+    bottom: 0%;
+    right: 200px;
+}
+.Headerimg2{
+    position: absolute;
+    bottom: 0%;
+    right: 150px;
+}
+.header_box{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Header_item{
+    width: 75%;
+    height: auto;
+    margin-top: 3rem;
+}
+.home_online{
+    color: #005473;
+    font-family: Inter;
+    font-size: 1.625rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.header_item_box{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 3rem;
+    gap: 2rem;
+
+}
+.H_I_B{
+    width: 11.30206rem;
+    height: 9.25806rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.44281rem;
+    border: 0.641px solid #3F849C;
+    background: var(--Basic-White, #FFF);
+}
+.home_container{
+    width: 100vw;
+    margin: 2rem 0;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home_container img{
+    width: 88vw;
+}
+
+
+@media screen and (max-width: 768px) {
+    .header_item_box{
+        justify-content: center;
+    }
+    .Header_right{
+        display: none;
+    }
+    .Header_left{
+        width: 100%;
+        
+    }
+}
+
+

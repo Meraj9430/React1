@@ -262,7 +262,7 @@
 .doc_info_sp span{
     color: var(--Basic-White, #FFF);
     font-family: Inter;
-    font-size: 1.625rem;
+    font-size: 90%;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
