@@ -1,7 +1,4 @@
-
-
 import './App.css'
-import Category from './Category'
 import Footer from './Footer'
 import Navbar from './Navbar'
 import { Outlet } from 'react-router-dom'
@@ -13,7 +10,6 @@ function App() {
   return (
     <>
       <Navbar/>
-      {/* <Category/> */}
       <Outlet/>
       <Footer/>
     </>

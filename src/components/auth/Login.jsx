@@ -1,8 +1,13 @@
 /* eslint-disable react/prop-types */
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "../../components_css/auth/Login.css";
 
 const Login = ({ close, setview, setSign }) => {
+  const API = import.meta.env.VITE_API;
+  const [input, setInput] = useState({
+    Email: "john.doe@example.com",
+    Password: "password123",
+  });
   useEffect(() => {
     function onKeyDown(event) {
       if (event.keyCode === 27) {
@@ -18,6 +23,45 @@ const Login = ({ close, setview, setSign }) => {
     setview(false);
     setSign(true);
   };
+  const handlechang = (e) => {
+    setInput((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const formsubmit = async (e) => {
+    e.preventDefault();
+    // console.log(data)
+    // dispatch(UserAuth(data))
+    const res = await fetch(`${API}/api/userSignup_login/Userlogin`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        Email: input.Email,
+        Password: input.Password,
+        // expiresInMins: 60, // optional
+      }),
+    });
+    const deta = await res.json();
+    if (!deta.success) {
+      alert(`${deta.error}`);
+    }
+
+    console.log(deta);
+    localStorage.setItem("token", deta.user.token);
+    localStorage.setItem("userId", deta.user.userId);
+    // setLogout(true)
+    setview(false);
+    alert(`Logged in Successfully`);
+    // console.log(deta)
+    // localStorage.setItem("token", deta.user.token);
+    // localStorage.setItem("userId", deta.user.userId);
+
+    // Navigate("dashboard");
+    // getUserInfo()
+    // dispatch(addUser(deta))
+  };
   return (
     <div>
       <div className="modalback">
@@ -30,15 +74,25 @@ const Login = ({ close, setview, setSign }) => {
                 </span>
                 <span onClick={close}> ❌</span>
               </div>
-              <form className="login_form">
+              <form className="login_form" onSubmit={formsubmit}>
                 <div className="login_input">
-                  <input type="email" placeholder="Enter Your Email" required />
+                  <input
+                    type="email"
+                    name="Email"
+                    value={input.Email}
+                    onChange={handlechang}
+                    placeholder="Enter Your Email"
+                    required
+                  />
                 </div>
                 <div className="login_input">
                   <input
                     type="password"
                     placeholder="Enter Your Password"
                     required
+                    name="Password"
+                    value={input.Password}
+                    onChange={handlechang}
                   />
                 </div>
                 <button type="submit" className="login_btn">

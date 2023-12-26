@@ -4,36 +4,36 @@ import { useState } from "react";
 import axios from "axios";
 import FormData from "form-data";
 import Loader from "./sub_components/Loader";
-
+import { useNavigate } from "react-router-dom";
 
 const arr = [
-  "Gynaecologist",
-  "Cardiologist",
-  "ENT specialist",
-  "Pediatrician",
-  "Dermatologist",
-  "Neurologist",
-  "Oncologist",
-  "Orthopaedist",
+  "Dermatology",
   "Endocrinologist",
-  "General Medicine",
-  "Anaesthesiologist",
-  "Dentist",
-  "Nephrologist",
+  "Gastroenterology",
+  "Oncologist",
+  "Pediatrician",
+  "Cardiology",
+  "Family Medicine",
+  "Neurology",
+  "Obstettrics and Gynecology",
+  "Radiologists",
+  "Anesthesiology",
+  "Geriatrics",
+  "Internal Medicine",
+  "Nephrology",
   "Ophthalmology",
   "Psychiatrists",
-  "Pulmonologist",
-  "Radiologist",
-  "Geriatrician",
-  "Veterinarian",
-  "Allergist",
-  "Audiologist",
-  "Pathologist",
-  "Surgeon",
-  "Dietitian",
+  "Hospice and palliative medicine",
+  "Pulmonologists",
+  "Clinical Neurophysiology",
+  "Emergency Medicine",
+  "Hematology",
+  "Inectious disease",
+  "Microsurgery",
+  "Otolaryngologists",
 ];
 
-const arr2 =[
+const arr2 = [
   " Andhra Pradesh",
   "Arunachal Pradesh",
   "Assam",
@@ -62,10 +62,11 @@ const arr2 =[
   "Uttarakhand",
   "Uttar Pradesh",
   "West Bengal",
-]
+];
 
 const Doc_Registration_form = () => {
   const API = import.meta.env.VITE_API;
+  const Navigate = useNavigate();
   // const [toggle,settoggle]=useState(false)
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
@@ -86,61 +87,79 @@ const Doc_Registration_form = () => {
   const [languages, setLanguages] = useState("");
   const [physical_info, setPhysical_info] = useState("");
   const [virtual, setVirtual] = useState("");
+  const [pass, setPass] = useState("");
   const [Photo, setPhoto] = useState(null);
   const [Photo2, setPhoto2] = useState(null);
   const [Photo3, setPhoto3] = useState(null);
   const [Photo4, setPhoto4] = useState(null);
   const [Photo5, setPhoto5] = useState(null);
   const [loader, setLoader] = useState(false);
-  const [password, setPasswoed] = useState('');
-  
-  const submitForm = async (e) => {
-    
-    e.preventDefault();
-    const det = new FormData();
-    setLoader(true)
-    det.append("name", name);
-    det.append("mobile", mobile);
-    det.append("email", email);
-    det.append("qualification", qualification);
-    det.append("specialization", specialization);
-    det.append("experience", experience);
-    det.append("gender", gender);
-    det.append("age", age);
-    det.append("blood_group", blood_group);
-    det.append("house_street_no", house_street_no);
-    det.append("colony_locality", colony_locality);
-    det.append("city", city);
-    det.append("state", state);
-    det.append("country", country);
-    det.append("pincode", pincode);
-    det.append("extra_mobile", extra_mobile);
-    det.append("languages", languages);
-    det.append("physical_info", physical_info);
-    det.append("virtual", virtual);
-    det.append("Photo", Photo);
-    det.append("Photo2", Photo2);
-    det.append("Photo3", Photo3);
-    det.append("Photo4", Photo4);
-    det.append("Photo5", Photo5);
-    det.append("password", password);
-    try {
-     const res = await axios({
-        method: "post",
-        url: `${API}/api/doctor/addDoctor`,
-        data: det,
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-      console.log(res)
-      setLoader(false)
-      alert("Registration Successful")
-    } catch (error) {
-      console.log(error)
-      setLoader(false)
-      alert(error.message)
-    }
 
-    
+  const submitForm = async (e) => {
+    e.preventDefault();
+    try {
+      let det = new FormData();
+      setLoader(true);
+      det.append("name", name);
+      det.append("mobile", mobile);
+      det.append("email", email);
+      det.append("qualification", qualification);
+      det.append("specialization", specialization);
+      det.append("experience", experience);
+      det.append("gender", gender);
+      det.append("age", age);
+      det.append("blood_group", blood_group);
+      det.append("house_street_no", house_street_no);
+      det.append("colony_locality", colony_locality);
+      det.append("city", city);
+      det.append("state", state);
+      det.append("country", country);
+      det.append("pincode", pincode);
+      det.append("extra_mobile", extra_mobile);
+      det.append("languages", languages);
+      det.append("physical_info", physical_info);
+      det.append("virtual", virtual);
+      det.append("password", pass);
+      det.append("Photo", Photo);
+      det.append("Photo2", Photo2);
+      det.append("Photo3", Photo3);
+      det.append("Photo4", Photo4);
+      // det.append("Photo5", Photo5);
+
+      //  const res = await axios({
+      //     method: "post",
+      //     url: `${API}/api/doctor/addDoctor`,
+      //     data: det,
+      //     headers: { "Content-Type": "multipart/form-data" },
+      //   })
+      //   console.log(res)
+      //   setLoader(false)
+      //   alert(res)
+      //   Navigate('/')
+      const rawResponse = await fetch(`${API}/api/doctor/addDoctor`, {
+        method: "POST",
+        headers: {
+          Accept: "*/*",
+          // "Content-Type": "multipart/form-data",
+        },
+        body: det,
+      });
+      const content = await rawResponse.json();
+      if (content.success) {
+        alert("Registration successful");
+        Navigate("/");
+        setLoader(false);
+        // setSign(false);
+      } else {
+        alert(content.error);
+        setLoader(false);
+      }
+      console.log(content);
+    } catch (err) {
+      console.log(err.status);
+      setLoader(false);
+      alert(err);
+    }
   };
   return (
     <>
@@ -220,13 +239,12 @@ const Doc_Registration_form = () => {
                     Password <span>*</span>
                   </label>
                   <div className="Doc_input_box">
-                    <div>
-                      <input
-                        type="password"
-                        onChange={(e) => setPasswoed(e.target.value)}
-                        required
-                      />
-                    </div>
+                    <input
+                      type="text"
+                      value={pass}
+                      onChange={(e) => setPass(e.target.value)}
+                      required
+                    />
                   </div>
                 </div>
                 <div className="Doc_box">
@@ -256,12 +274,12 @@ const Doc_Registration_form = () => {
                       required
                     >
                       <option value="">Select an option</option>
-                      {arr.map((e,i)=>(
-                         <option key={i} value={e}>{e}</option> 
+                      {arr.map((e, i) => (
+                        <option key={i} value={e}>
+                          {e}
+                        </option>
                       ))}
-                      
                     </select>
-
                   </div>
                 </div>
                 <div className="Doc_box">
@@ -351,21 +369,17 @@ const Doc_Registration_form = () => {
                       value={house_street_no}
                       onChange={(e) => setHouse_street_no(e.target.value)}
                       type="text"
-                      
                     />
                   </div>
                 </div>
                 <div className="Doc_box">
-                  <label htmlFor="">
-                    Colony/Street/Locality 
-                  </label>
+                  <label htmlFor="">Colony/Street/Locality</label>
                   <div className="Doc_input_box">
                     <input
                       id=""
                       value={colony_locality}
                       onChange={(e) => setColony_locality(e.target.value)}
                       type="text"
-                      
                     />
                   </div>
                 </div>
@@ -387,7 +401,7 @@ const Doc_Registration_form = () => {
                     State <span>*</span>
                   </label>
                   <div className="Doc_input_box">
-                      <select
+                    <select
                       value={state}
                       onChange={(e) => setState(e.target.value)}
                       name=""
@@ -395,10 +409,11 @@ const Doc_Registration_form = () => {
                       required
                     >
                       <option value="">Select an option</option>
-                      {arr2.map((e,i)=>(
-                         <option key={i} value={e}>{e}</option> 
+                      {arr2.map((e, i) => (
+                        <option key={i} value={e}>
+                          {e}
+                        </option>
                       ))}
-                      
                     </select>
                   </div>
                 </div>
@@ -536,15 +551,14 @@ const Doc_Registration_form = () => {
                   </label>
                   <div className="Doc_input_box">
                     <div>
-
-                    <input
-                      required
-                      type="file"
-                      name=""
-                      id="MRP"
-                      onChange={(e) => setPhoto2(e.target.files[0])}
+                      <input
+                        required
+                        type="file"
+                        name=""
+                        id="MRP"
+                        onChange={(e) => setPhoto2(e.target.files[0])}
                       />
-                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="Doc_box">
@@ -552,10 +566,15 @@ const Doc_Registration_form = () => {
                     Degree Proof<span>*</span>
                   </label>
                   <div className="Doc_input_box">
-                   <div>
-
-                    <input  type="file" name="" id="DP" required onChange={(e) => setPhoto3(e.target.files[0])}/>
-                   </div>
+                    <div>
+                      <input
+                        type="file"
+                        name=""
+                        id="DP"
+                        required
+                        onChange={(e) => setPhoto3(e.target.files[0])}
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="Doc_box">
@@ -564,17 +583,26 @@ const Doc_Registration_form = () => {
                   </label>
                   <div className="Doc_input_box">
                     <div>
-                    <input  id="ID" type="file" name="" required onChange={(e) => setPhoto4(e.target.files[0])}/>
+                      <input
+                        id="ID"
+                        type="file"
+                        name=""
+                        required
+                        onChange={(e) => setPhoto4(e.target.files[0])}
+                      />
                     </div>
                   </div>
                 </div>
                 <div className="Doc_box">
-                  <label htmlFor="Email Address">
-                    Add Photo 
-                  </label>
+                  <label htmlFor="Email Address">Add Photo</label>
                   <div className="Doc_input_box">
                     <div>
-                    <input  id="ID" type="file" name=""  onChange={(e) => setPhoto5(e.target.files[0])}/>
+                      <input
+                        id="ID"
+                        type="file"
+                        name=""
+                        onChange={(e) => setPhoto5(e.target.files[0])}
+                      />
                     </div>
                   </div>
                 </div>
@@ -582,10 +610,7 @@ const Doc_Registration_form = () => {
             </div>
             <div id="DRP_line"></div>
             <div id="DRP_btn">
-              <button
-                className="DRP_submit_btn"
-                type="submit"
-              >
+              <button className="DRP_submit_btn" type="submit">
                 <span>Save</span>
               </button>
             </div>

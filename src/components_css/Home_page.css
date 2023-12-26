@@ -68,6 +68,12 @@
     bottom: 0%;
     right: 200px;
 }
+.Headerimg img{
+    width: 22vw;
+}
+.Headerimg2 img{
+    width: 30vw;
+}
 .Headerimg2{
     position: absolute;
     bottom: 0%;
@@ -137,6 +143,13 @@
     .Header_left{
         width: 100%;
         
+    }
+    .H_I_B{
+        width: 33vw;
+        padding: 1vw;
+    }
+    .H_I_B p{
+        font-size: 3.8vw;
     }
 }
 

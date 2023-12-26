@@ -2,8 +2,15 @@
 import "../../components_css/Header_css/Navbar.css";
 import Logo from "../../assets/Header/Group 3803 (4) 3.png";
 import User from "../../assets/Header/User.svg";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const Navgator=useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    alert("Logout Successfull");
+    Navgator("/");
+  };
   return (
     <div className="navbar">
       <nav>
@@ -16,6 +23,7 @@ const Navbar = () => {
             <li>Medicines</li>
             <li>Labs test</li>
             <li>Hospital</li>
+            <li onClick={handleLogout}>logout</li>
           </ul>
           
         </div>

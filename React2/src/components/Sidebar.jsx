@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import  { useState,useEffect } from 'react';
 import {
     FaBars,
 }from "react-icons/fa";
@@ -8,12 +8,19 @@ import Communications from '../assets/category/Communications.svg'
 import Medical from '../assets/category/Medical_Records.svg'
 import Online from '../assets/category/Online.svg'
 import Refer from '../assets/category/Refer.svg'
-import { Outlet } from 'react-router-dom';
+import { Outlet ,useNavigate} from 'react-router-dom';
 
 
 const Sidebar = () => {
     const[isOpen ,setIsOpen] = useState(false);
     const toggle = () => setIsOpen (!isOpen);
+    const Navigate=useNavigate();
+    useEffect(() => {
+        if (!localStorage.getItem("token")) {
+          return Navigate("/");
+        }
+        // getUserInfo();
+      }, []);
     const menuItem=[
         {
             path:"communications",
@@ -66,7 +73,8 @@ const Sidebar = () => {
                }
            </div>
            {/* <main>{children}</main> */}
-           <Outlet/>
+           {!localStorage.getItem("token") && <Outlet/>}
+           
         </div>
     );
 };

@@ -38,7 +38,7 @@
   height: 22.623px;
   flex-shrink: 0;
   font-family: Inter;
-  font-size: 25px;
+  font-size: 2vw;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
@@ -56,6 +56,7 @@
   display: flex;
   flex-direction:column ;
   gap: 15px;
+  position: relative;
 }
 .active{
   width: 164px;
@@ -91,12 +92,13 @@
   align-items: center;
   width: 50%;
   /* border: 5px solid black; */
-  justify-content: space-between;
+  justify-content: flex-start;
 
 }
 
 #box2 {
   width: 50%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -131,7 +133,7 @@
 }
 
 #search {
-  width: 401px;
+  width:27vw;
   height: 56px;
   display: flex;
   flex-shrink: 0;
@@ -144,7 +146,7 @@
 }
 
 #search input {
-  width: 297.5px;
+  width: 80%;
   height: 25.5px;
   flex-shrink: 0;
   margin-left: 30px;
@@ -157,7 +159,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 79px;
+  width: 6vw;
   height: 56px;
   flex-shrink: 0;
   border-radius: 48.45px;
@@ -236,7 +238,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  width: 14.3125rem;
+  width: 12vw;
   height: 2.75rem;
   background-color: #005473;
   color: #FFF;
@@ -252,7 +254,7 @@
 .login_btn p{
   color: var(--Basic-White, #FFF);
   font-family: Inter;
-  font-size: 1.25rem;
+  font-size: 1.43vw;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
@@ -366,6 +368,9 @@ footer {
   }
 
   /* menu-css */
+  #menu{
+    display: none;
+  }
   #menu ul li {
     font-size: 3.1vw;
   }
@@ -384,6 +389,7 @@ footer {
   }
   #box2{
     display: none;
+    
   }
   #search{
     display: none;
@@ -392,7 +398,7 @@ footer {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   #logo{
     margin: 10px;
@@ -405,5 +411,14 @@ footer {
     display: inline;
     margin: 10px;
   }
+  .login_btn{
+    width: 30vw;
+    margin: 2vw 0;
+  }
+  .login_btn p{
+    font-size: 4.43vw;
+  }
+  
+
 
 }

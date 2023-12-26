@@ -72,7 +72,7 @@
     justify-content: space-around;
 }
 #item1{
-    width: 40.625rem;
+    width: 35vw;
     height: 11.1875rem;
     display: flex;
     align-items: center;
@@ -82,7 +82,7 @@
     background: linear-gradient(186deg, #CAE8EC 4.53%, #FCC018 272.47%);
 }
 #item2{
-    width: 40.625rem;
+    width: 35vw;
     height: 11.1875rem;
     position: relative;
     flex-shrink: 0;
@@ -123,7 +123,7 @@
 }
 #con {
     font-family: Inter;
-    font-size: 1.38125rem;
+    font-size: 1.3vw;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -185,7 +185,7 @@
     margin: 30px 0;
 }
 #input_box{
-    width: 24.625rem;
+    width: 25vw;
     height: 2.6875rem;
     flex-shrink: 0;
     border-radius: 1.0625rem;
@@ -242,12 +242,14 @@
 #doct{
     position: absolute;
     bottom: 0;
-    width: 20rem;
+    width: 19vw;
     height: 15rem;
+    z-index: 0;
 }
 #group_img{
     position: absolute;
     right: 0;
+    width: 13vw;
 }
 #third{
     width: 30%;
