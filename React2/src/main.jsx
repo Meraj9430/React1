@@ -22,6 +22,7 @@ import Online_Consultation from "./pages/Online_Consultation.jsx";
 import Refer_Patient from "./pages/Refer_Patient.jsx";
 import Login from "./components/auth/Login.jsx";
 import Login_otp from "./components/auth/Login_otp.jsx";
+import Set_time_day from "./pages/Set_time_day.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
         <Route path="Medical_Records" element={<Medical_Records />} />
         <Route path="Online_Consultation" element={<Online_Consultation />} />
         <Route path="Refer_Patient" element={<Refer_Patient />} />
+        <Route path="set_time_date" element={<Set_time_day />} />
         <Route path="Feedback" element={<Feedback />} />
         <Route path="Profile" element={<Profile />} />
         <Route path="Media" element={<Media />} />

@@ -44,16 +44,24 @@ const Login = ({ close, setview, setSign }) => {
       }),
     });
     const deta = await res.json();
-    if (!deta.success) {
-      alert(`${deta.error}`);
-    }
-
     console.log(deta);
     localStorage.setItem("token", deta.user.token);
     localStorage.setItem("userId", deta.user.userId);
-    // setLogout(true)
     setview(false);
     alert(`Logged in Successfully`);
+    // if (deta.success) {
+    //   localStorage.setItem("token", deta.user.token);
+    //   localStorage.setItem("userId", deta.user.userId);
+    //   setview(false);
+    //   alert(`Logged in Successfully`);
+    // }else{
+    //   // alert(`${deta.error}`);
+    // }
+
+    
+   
+    // setLogout(true)
+    
     // console.log(deta)
     // localStorage.setItem("token", deta.user.token);
     // localStorage.setItem("userId", deta.user.userId);

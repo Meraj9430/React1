@@ -4,32 +4,35 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Login = () => {
-  const api=import.meta.env.VITE_API
+  const api = import.meta.env.VITE_API;
   const [email, setEmail] = useState("azal035@gmail.com");
   const [password, setPassword] = useState("Abcdef@123");
   const Navigate = useNavigate();
   const handlesubmit = async (e) => {
     e.preventDefault();
-    // console.log(data)
-    // dispatch(UserAuth(data))
     const res = await fetch(`${api}/api/doctor/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email: email,
-      password: password,
-      // expiresInMins: 60, // optional
-    }),
-  });
-  const deta = await res.json();
-  console.log(deta)
-  localStorage.setItem("token", deta.token);
-  alert(`Logged in Successfully ${deta.token}`);
-  Navigate("dashboard");
-  // getUserInfo()
-  // dispatch(addUser(deta))
-  
-}; 
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        // expiresInMins: 60, // optional
+      }),
+    });
+    const deta = await res.json();
+    console.log(deta);
+    if (deta.success) {
+      localStorage.setItem("token", deta.token);
+      localStorage.setItem("doctorId", deta.doctorId);
+      alert(`Logged in Successfully `);
+      Navigate("dashboard/set_time_date");
+    } else {
+      alert(`${deta.message}`);
+    }
+
+    // getUserInfo()
+    // dispatch(addUser(deta))
+  };
 
   return (
     <div className="Form_body">
@@ -42,8 +45,20 @@ const Login = () => {
             </div>
           </div>
           <form className="login-form" onSubmit={handlesubmit}>
-            <input type="text" value={email} placeholder="Email ID / Mobile no." onChange={(e)=>setEmail(e.target.value)} required />
-            <input type="password" value={password} placeholder="password"required onChange={(e)=>setPassword(e.target.value)} />
+            <input
+              type="text"
+              value={email}
+              placeholder="Email ID / Mobile no."
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              value={password}
+              placeholder="password"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <button type="submit">login</button>
             <p className="message">
               <a href="#">Create an account</a>

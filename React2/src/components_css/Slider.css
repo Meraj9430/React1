@@ -13,7 +13,7 @@ main{
 .sidebar{
     background: #1312123f;
     color: #fff;
-    height: 100vh;
+    height: auto;
     width: 200px;
     transition: all 0.5s;
 }
@@ -49,4 +49,9 @@ main{
 .icon, .link_text{
     font-size: 20px;
     color:#005473;
+}
+@media screen and (max-width: 768px) {
+    .sidebar{
+        display: none;
+    }
 }

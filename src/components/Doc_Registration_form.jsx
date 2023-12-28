@@ -1,7 +1,8 @@
+/* eslint-disable react-refresh/only-export-components */
 // import React from 'react'
 import "../components_css/Doc_Registration_form.css";
 import { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import FormData from "form-data";
 import Loader from "./sub_components/Loader";
 import { useNavigate } from "react-router-dom";
@@ -63,7 +64,63 @@ const arr2 = [
   "Uttar Pradesh",
   "West Bengal",
 ];
-
+const option = [
+  "1:00 AM",
+  "2:00 AM",
+  "3:00 AM",
+  "4:00 AM",
+  "5:00 AM",
+  "6:00 AM",
+  "7:00 AM",
+  "8:00 AM",
+  "9:00 AM",
+  "10:00 AM",
+  "11:00 AM",
+  "12:00 PM",
+  "1:00 PM",
+  "2:00 PM",
+  "3:00 PM",
+  "4:00 PM",
+  "5:00 PM",
+  "6:00 PM",
+  "7:00 PM",
+  "8:00 PM",
+  "9:00 PM",
+  "10:00 PM",
+  "11:00 PM",
+  "12:00 AM",
+];
+const mor = [
+  "5:00AM to 7:00AM",
+  "7:00AM to 9:00AM",
+  "9:00AM to 11:00AM",
+  "11:00AM to 12:00PM",
+];
+const afternoon = ["12:00PM to 2:00PM", "2:00PM to 4:00PM"];
+const evening = [
+  "4:00 PM to 6:00PM",
+  "6:00 PM to 8:00PM",
+  "8:00 PM to 10:00PM",
+];
+const interval = [
+  "10 Minutes",
+  "20 Minutes",
+  "30 Minutes",
+  "40 Minutes",
+  "50 Minutes",
+  "1 Hour",
+  "2 Hour",
+  "3 Hour",
+];
+const Day = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 const Doc_Registration_form = () => {
   const API = import.meta.env.VITE_API;
   const Navigate = useNavigate();
@@ -88,12 +145,39 @@ const Doc_Registration_form = () => {
   const [physical_info, setPhysical_info] = useState("");
   const [virtual, setVirtual] = useState("");
   const [pass, setPass] = useState("");
+  const [day, setday] = useState([]);
+  const [startTime, setStarttime] = useState("");
+  const [endTime, setEndtime] = useState("");
+  const [fee, setFee] = useState("");
+  const [tinterval, settinterval] = useState("");
+  const [morning, setMorning] = useState([]);
+  const [after, setAfternoon] = useState([]);
+  const [eve, setEvening] = useState([]);
   const [Photo, setPhoto] = useState(null);
   const [Photo2, setPhoto2] = useState(null);
   const [Photo3, setPhoto3] = useState(null);
   const [Photo4, setPhoto4] = useState(null);
   const [Photo5, setPhoto5] = useState(null);
   const [loader, setLoader] = useState(false);
+
+  const handileday = (e) => {
+    if (day.length <= 6) {
+      const arr = [...day, e];
+      setday(arr);
+    }
+  };
+  const handile_mor = (e) => {
+    const arr = [...morning, e];
+    setMorning(arr);
+  };
+  const handile_after = (e) => {
+    const arr = [...after, e];
+    setAfternoon(arr);
+  };
+  const handile_evening = (e) => {
+    const arr = [...eve, e];
+    setEvening(arr);
+  };
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -120,11 +204,19 @@ const Doc_Registration_form = () => {
       det.append("physical_info", physical_info);
       det.append("virtual", virtual);
       det.append("password", pass);
+      det.append("days", day);
+      det.append("start_time", startTime);
+      det.append("end_time", endTime);
+      det.append("fee", fee);
+      det.append("interval", tinterval);
+      det.append("morning", morning);
+      det.append("afternoon", after);
+      det.append("evening", eve);
       det.append("Photo", Photo);
       det.append("Photo2", Photo2);
       det.append("Photo3", Photo3);
       det.append("Photo4", Photo4);
-      // det.append("Photo5", Photo5);
+      det.append("Photo5", Photo5);
 
       //  const res = await axios({
       //     method: "post",
@@ -456,6 +548,173 @@ const Doc_Registration_form = () => {
                       type="text"
                       required
                     />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="DRP_line"></div>
+            <div>
+              <h1>Set Date/Time</h1>
+              <div className="DRP_form_deta">
+                <div className="Doc_box">
+                  <label htmlFor="Mobile No">
+                    Dr Fee<span>*</span>
+                  </label>
+                  <div className="Doc_input_box">
+                    <input
+                      id="name"
+                      type="text"
+                      value={fee}
+                      onChange={(e) => setFee(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="Doc_box">
+                  <label htmlFor="Mobile No">
+                    Day<span>*</span>{day.map((e=>(<span style={{color:'black'}} key={e}>{e},</span>)))}
+                  </label>
+                  <div className="Doc_input_box">
+                    <select
+                      
+                      onChange={(e) => handileday(e.target.value)}
+                      name=""
+                      id=""
+                      required
+                    >
+                      <option value="">Select an option</option>
+                      {Day.map((e) => (
+                        <option key={e} value={e}>
+                          {e}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div className="Doc_box">
+                  <label htmlFor="Mobile No">
+                    Start Time<span>*</span>
+                  </label>
+                  <div className="Doc_input_box">
+                    <select
+                      
+                      onChange={(e) => setStarttime(e.target.value)}
+                      name=""
+                      id=""
+                      required
+                    >
+                      <option value="">Select an option</option>
+                      {option.map((e) => (
+                        <option key={e} value={e}>
+                          {e}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div className="Doc_box">
+                  <label htmlFor="Mobile No">
+                    End Time<span>*</span>
+                  </label>
+                  <div className="Doc_input_box">
+                    <select
+                      
+                      onChange={(e) => setEndtime(e.target.value)}
+                      name=""
+                      id=""
+                      required
+                    >
+                      <option value="">Select an option</option>
+                      {option.map((e) => (
+                        <option key={e} value={e}>
+                          {e}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div className="Doc_box">
+                  <label htmlFor="Mobile No">
+                    Morning<span>*</span>{morning.map((e=>(<span style={{color:'black'}} key={e}>{e} , </span>)))}
+                  </label>
+                  <div className="Doc_input_box">
+                    <select
+                     
+                      onChange={(e) => handile_mor(e.target.value)}
+                      name=""
+                      id=""
+                      required
+                    >
+                      <option value="">Select an option</option>
+                      {mor.map((e) => (
+                        <option key={e} value={e}>
+                          {e}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div className="Doc_box">
+                  <label htmlFor="Email Address">
+                    Afternoon <span>*</span>{after.map((e=>(<span style={{color:'black'}} key={e}>{e} , </span>)))}
+                  </label>
+                  <div className="Doc_input_box">
+                    <select
+                      
+                      onChange={(e) => handile_after(e.target.value)}
+                      name=""
+                      id=""
+                      required
+                    >
+                      <option value="">Select an option</option>
+                      {afternoon.map((e) => (
+                        <option key={e} value={e}>
+                          {e}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div className="Doc_box">
+                  <label htmlFor="Qualification">
+                    Evening <span>*</span>{eve.map((e=>(<span style={{color:'black'}} key={e}>{e} , </span>)))}
+                  </label>
+                  <div className="Doc_input_box">
+                    <select
+                      
+                      onChange={(e) => handile_evening(e.target.value)}
+                      name=""
+                      id=""
+                      required
+                    >
+                      <option value="">Select an option</option>
+                      {evening.map((e) => (
+                        <option key={e} value={e}>
+                          {e}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div className="Doc_box">
+                  <label htmlFor="Qualification">
+                    Time interval <span>*</span>
+                  </label>
+                  <div className="Doc_input_box">
+                    <select
+    
+                      onChange={(e) => settinterval(e.target.value)}
+                      name=""
+                      id=""
+                      required
+                    >
+                      <option value="">Select an option</option>
+                      {interval.map((e) => (
+                        <option key={e} value={e}>
+                          {e}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
               </div>
