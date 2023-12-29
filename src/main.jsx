@@ -16,6 +16,7 @@ import Labs_test from './components/Labs_test.jsx'
 import Hospital from './components/Hospital.jsx'
 import Doc_Registration_form from './components/Doc_Registration_form.jsx'
 import Home_page from './components/Home_page.jsx'
+import Book_Appointment from './components/Book_Appointment/Book_Appointment.jsx';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="Labs_test" element={<Labs_test />} />
       <Route path="Hospital" element={<Hospital />} />
       <Route path="Doc_Registration_form" element={<Doc_Registration_form />} />
+      <Route path="Book_Appointment/:id" element={<Book_Appointment />} />
     </Route>
   )
 );

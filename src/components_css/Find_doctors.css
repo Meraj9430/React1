@@ -370,9 +370,78 @@
     line-height: normal;
   
 }
+.doc_info_btn{
+    width: 32.5625rem;
+    height: 4.125rem;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    margin: 1rem 0;
+    border-radius: 1.4375rem;
+    color: var(--Basic-White, #FFF);
+    font-family: Inter;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    background: radial-gradient(182.7% 134.21% at 97.4% 6.15%, rgba(52, 83, 129, 0.44) 0%, #378493 26.04%, #146480 49.48%, #42869E 69.27%, rgba(30, 71, 85, 0.74) 87.5%, rgba(236, 250, 252, 0.85) 100%);
+}
+.pick_time{
+    width: 31.1875rem;
+    height: auto;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 1.5625rem;
+    border: 2px solid #1F5E82;
+    box-shadow: -7px 7px 14px 0px rgba(0, 0, 0, 0.25), 9px -6px 11px 0px rgba(0, 0, 0, 0.25);
+}
+.slots{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    width: 100%;
+    height: auto;
+}
+.slots_btn{
+    width: 6.375rem;
+    height: 2.4375rem;
+    border-radius: 0.625rem;
+    border: 2px solid #1F5E82;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #005473;
+    font-size:  0.9375rem;
+}
+.slot_book{
+    width: 9.125rem;
+    height: 3.375rem;
+    border-radius: 1.125rem;
+    background: radial-gradient(182.7% 134.21% at 97.4% 6.15%, rgba(52, 83, 129, 0.44) 0%, #378493 26.04%, #146480 49.48%, #42869E 69.27%, rgba(30, 71, 85, 0.74) 87.5%, rgba(236, 250, 252, 0.85) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Basic-White, #FFF);
+    font-family: Inknut Antiqua;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 1rem;
+
+}
 
 @media screen and (max-width: 768px) {
     /* Doctor List Css */ 
+    .pick_time{
+        width: 100%;
+    }
+    .doc_info_btn{
+        width: 100%;
+        font-size: 1.5rem;
+    }
     .doc_info_left{
         display: block;
     }
@@ -389,6 +458,7 @@
     }
     .doc_info_right{
         width: 100%;
+        padding: 1rem;
         
     }
     .info_back_btn{

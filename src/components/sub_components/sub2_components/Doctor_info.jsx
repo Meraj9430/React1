@@ -6,6 +6,7 @@ import clendar from "../../../assets/FindDoctors/calendar.svg";
 import Vectory from "../../../assets/FindDoctors/Vectory.svg";
 import Like from "../../../assets/FindDoctors/Like.svg";
 import Inr from "../../../assets/FindDoctors/INR.svg";
+import { Link } from "react-router-dom";
 const Doctor_info = ({deta,setComtoggle}) => {
   return (
     <>
@@ -53,6 +54,7 @@ const Doctor_info = ({deta,setComtoggle}) => {
             </span>
             <span className="info_today">Available Today</span>
           </div>
+          <Link style={{textDecoration:'none'}} to={`/Book_Appointment/${deta._id}`}>
           <div className="info_btn">
             <div>
               <p className="info_Appointment">Book Appointment</p>
@@ -62,6 +64,7 @@ const Doctor_info = ({deta,setComtoggle}) => {
               <img src={Vectory} alt="" />
             </div>
           </div>
+          </Link>
           <div className="info_back_btn">
 
           <div className="info_back" onClick={()=>setComtoggle(true)}>
