@@ -1,10 +1,11 @@
 // import React from 'react'
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link,useNavigate } from "react-router-dom";
 // import clendar from "../../assets/FindDoctors/calendar.svg";
 // import Vectory from "../../assets/FindDoctors/Vectory.svg";
 import Like from "../../assets/FindDoctors/Like.svg";
 import Inr from "../../assets/FindDoctors/INR.svg";
+import Appointment_Confirmed from "../sub_components/sub2_components/Appointment_Confirmed";
 const morning = ["10:00 AM", "11:10 AM", "11:20 AM", "11:50 AM"];
 const afternoon = ["01:20 PM", "02:40 PM", "03:20 PM", "03:40 PM", "04:20 PM"];
 const eve = ["04:20 PM", "04:40 PM", "05:20 PM", "05:40 PM", "06:20 PM"];
@@ -13,9 +14,19 @@ const Book_Appointment = () => {
   const { id } = useParams();
   const API = import.meta.env.VITE_API;
   const [docInfo, setDocInfo] = useState([]);
+  const [date, setDate] = useState("");
+  const [appointmentId, setAppointmentId] = useState("");
+  const [time, setTime] = useState("");
+  const [toggle, setToggle] = useState(false);
+  const Navgator=useNavigate()
 
   useEffect(() => {
-    featchdeta();
+    if (!localStorage.getItem("userId")) {
+      alert('Login required')
+      Navgator("/");
+    }else{
+      featchdeta();
+    }
   }, []);
 
   const featchdeta = async () => {
@@ -28,6 +39,43 @@ const Book_Appointment = () => {
       console.error(error);
     }
   };
+  const twoApicall = () => {
+    getAppointmentId();
+    sendAppointdeta();
+    setToggle(true);
+  };
+  const getAppointmentId = async () => {
+    const res = await fetch(`${API}/api/doctor/updateDoctor/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      // body: JSON.stringify({ appointmentId: "" }),
+    });
+    try {
+      const de = await res.json();
+      setAppointmentId(de.appointmentId)
+      console.log(de);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const sendAppointdeta = async () => {
+    const res = await fetch(`${API}/api/userAppointment/addUserAppointment`, {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId: localStorage.getItem('userId'), // Replace with a valid User ID
+        date: date,
+        time: time,
+      }),
+    });
+    try {
+      const de = await res.json();
+      console.log(de);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <div className="Doctor_info">
@@ -71,7 +119,7 @@ const Book_Appointment = () => {
             </div>
             <div className="info_doc_Add">
               <div className="doc_info_btn">Trusted Healthcare</div>
-              <div className="doc_info_btn">{docInfo.mobile}</div>
+              {/* <div className="doc_info_btn">{docInfo.mobile}</div> */}
               <div className="doc_info_btn">
                 {docInfo.house_street_no} {docInfo.colony_locality}
               </div>
@@ -80,14 +128,8 @@ const Book_Appointment = () => {
           </div>
         </div>
         <div className="doc_info_right">
-          {/* <div className="D_I">
-            <span>
-              <img src={clendar} alt="img" />
-            </span>
-            <span className="info_today">Available Today</span>
-          </div> */}
           <div className="pick_time">
-          <div className="info_doc_Add">Pick a time slot</div>
+            <div className="info_doc_Add">Pick a time slot</div>
             {/* <div id="DRP_line"></div> */}
             <div className="doc_info_btn" style={{ width: "100%" }}>
               Clinic Appointment Fee :-
@@ -102,34 +144,52 @@ const Book_Appointment = () => {
                 gap: "1rem",
               }}
             >
-              <div id="info_Doc_Name">{docInfo.name}</div>
+              <div id="info_Doc_Name">{docInfo.name} </div>
               <img src={Inr} alt="img" />
               {docInfo.fee}
             </div>
             <div id="DRP_line"></div>
-            
-            
+
+            <div className="info_doc_Add">
+              <input
+                type="date"
+                id="date"
+                style={{ margin: "0 1rem" }}
+                onChange={(e) => setDate(e.target.value)}
+              />
+              {date} ,{time}
+            </div>
             <div className="info_doc_Add">Morning ({morning.length}Slots)</div>
             <div className="slots">
-              {
-                morning.map((e)=>(<div className="slots_btn" key={e}>{e}</div>))
-              }
+              {morning.map((e) => (
+                <div className="slots_btn" onClick={() => setTime(e)} key={e}>
+                  {e}
+                </div>
+              ))}
             </div>
             <div id="DRP_line"></div>
-            <div className="info_doc_Add">Afternoon ({afternoon.length}Slots)</div>
+            <div className="info_doc_Add">
+              Afternoon ({afternoon.length}Slots)
+            </div>
             <div className="slots">
-              {
-                afternoon.map((e)=>(<div className="slots_btn" key={e}>{e}</div>))
-              }
+              {afternoon.map((e) => (
+                <div className="slots_btn" onClick={() => setTime(e)} key={e}>
+                  {e}
+                </div>
+              ))}
             </div>
             <div id="DRP_line"></div>
             <div className="info_doc_Add">Evening ({eve.length}Slots)</div>
             <div className="slots">
-              {
-                eve.map((e)=>(<div className="slots_btn" key={e}>{e}</div>))
-              }
+              {eve.map((e) => (
+                <div className="slots_btn" onClick={() => setTime(e)} key={e}>
+                  {e}
+                </div>
+              ))}
             </div>
-            <div className="slot_book">Book Now</div>
+            <div className="slot_book" onClick={twoApicall}>
+              Book Now
+            </div>
           </div>
 
           <Link style={{ textDecoration: "none" }} to={`/find_doctor`}>
@@ -141,6 +201,8 @@ const Book_Appointment = () => {
           </Link>
         </div>
       </div>
+
+      {toggle ? <Appointment_Confirmed appointmentId={appointmentId} docInfo={docInfo} time={time} date={date} setToggle={setToggle}/> : ""}
     </>
   );
 };

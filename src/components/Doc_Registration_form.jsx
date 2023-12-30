@@ -140,7 +140,7 @@ const Doc_Registration_form = () => {
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
   const [pincode, setPincode] = useState("");
-  const [extra_mobile, setExtra_mobile] = useState("");
+  const [extra_mobile, setExtra_mobile] = useState(" ");
   const [languages, setLanguages] = useState("");
   const [physical_info, setPhysical_info] = useState("");
   const [virtual, setVirtual] = useState("");
@@ -157,7 +157,7 @@ const Doc_Registration_form = () => {
   const [Photo2, setPhoto2] = useState(null);
   const [Photo3, setPhoto3] = useState(null);
   const [Photo4, setPhoto4] = useState(null);
-  const [Photo5, setPhoto5] = useState(null);
+  // const [Photo5, setPhoto5] = useState(null);
   const [loader, setLoader] = useState(false);
 
   const handileday = (e) => {
@@ -216,7 +216,7 @@ const Doc_Registration_form = () => {
       det.append("Photo2", Photo2);
       det.append("Photo3", Photo3);
       det.append("Photo4", Photo4);
-      det.append("Photo5", Photo5);
+      // det.append("Photo5", Photo5);
 
       //  const res = await axios({
       //     method: "post",
@@ -852,7 +852,7 @@ const Doc_Registration_form = () => {
                     </div>
                   </div>
                 </div>
-                <div className="Doc_box">
+                {/* <div className="Doc_box">
                   <label htmlFor="Email Address">Add Photo</label>
                   <div className="Doc_input_box">
                     <div>
@@ -864,7 +864,7 @@ const Doc_Registration_form = () => {
                       />
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div id="DRP_line"></div>

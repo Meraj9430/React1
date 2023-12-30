@@ -13,7 +13,7 @@ const Signup = ({ close, setview, setSign }) => {
     Mobile: "",
     Email: "",
     Password: "",
-    Referral: "",
+    Referral: " ",
   });
   useEffect(() => {
     function onKeyDown(event) {

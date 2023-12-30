@@ -5,8 +5,8 @@ import "../../components_css/auth/Login.css";
 const Login = ({ close, setview, setSign }) => {
   const API = import.meta.env.VITE_API;
   const [input, setInput] = useState({
-    Email: "",
-    Password: "",
+    Email: "john.doe@example.com",
+    Password: "password123",
   });
   useEffect(() => {
     function onKeyDown(event) {

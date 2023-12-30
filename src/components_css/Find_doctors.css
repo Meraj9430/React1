@@ -413,6 +413,7 @@
     align-items: center;
     justify-content: center;
     color: #005473;
+    cursor: pointer;
     font-size:  0.9375rem;
 }
 .slot_book{
@@ -430,6 +431,7 @@
     font-weight: 700;
     line-height: normal;
     margin-top: 1rem;
+    cursor: pointer;
 
 }
 
