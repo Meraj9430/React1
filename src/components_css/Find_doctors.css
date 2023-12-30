@@ -223,7 +223,8 @@
     height: auto;
     background-color: #ffff;
     display: flex;
-    align-items: center;
+    align-items: start;
+    margin-top: 1rem;
     justify-content: space-evenly;
 
 }

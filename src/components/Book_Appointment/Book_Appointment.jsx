@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { useParams, Link,useNavigate } from "react-router-dom";
 // import clendar from "../../assets/FindDoctors/calendar.svg";
 // import Vectory from "../../assets/FindDoctors/Vectory.svg";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { registerLocale } from "react-datepicker";
+import enGB from "date-fns/locale/en-GB";
 import Like from "../../assets/FindDoctors/Like.svg";
 import Inr from "../../assets/FindDoctors/INR.svg";
 import Appointment_Confirmed from "../sub_components/sub2_components/Appointment_Confirmed";
@@ -10,15 +14,17 @@ const morning = ["10:00 AM", "11:10 AM", "11:20 AM", "11:50 AM"];
 const afternoon = ["01:20 PM", "02:40 PM", "03:20 PM", "03:40 PM", "04:20 PM"];
 const eve = ["04:20 PM", "04:40 PM", "05:20 PM", "05:40 PM", "06:20 PM"];
 
+registerLocale("en-GB", enGB);
 const Book_Appointment = () => {
   const { id } = useParams();
   const API = import.meta.env.VITE_API;
   const [docInfo, setDocInfo] = useState([]);
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(null);
   const [appointmentId, setAppointmentId] = useState("");
   const [time, setTime] = useState("");
   const [toggle, setToggle] = useState(false);
   const Navgator=useNavigate()
+  const minDate = new Date();
 
   useEffect(() => {
     if (!localStorage.getItem("userId")) {
@@ -33,16 +39,21 @@ const Book_Appointment = () => {
     const res = await fetch(`${API}/api/doctor/getDoctorById/${id}`);
     try {
       const de = await res.json();
-      console.log(de);
+      // console.log(de);
       setDocInfo(de.result);
     } catch (error) {
       console.error(error);
     }
   };
   const twoApicall = () => {
-    getAppointmentId();
-    sendAppointdeta();
-    setToggle(true);
+    if (date===null) {
+       alert('Enter Date')}
+       else{
+        getAppointmentId();
+        sendAppointdeta();
+        setToggle(true);
+       }
+    
   };
   const getAppointmentId = async () => {
     const res = await fetch(`${API}/api/doctor/updateDoctor/${id}`, {
@@ -53,27 +64,30 @@ const Book_Appointment = () => {
     try {
       const de = await res.json();
       setAppointmentId(de.appointmentId)
-      console.log(de);
+      // console.log(de);
     } catch (error) {
       console.error(error);
     }
   };
   const sendAppointdeta = async () => {
-    const res = await fetch(`${API}/api/userAppointment/addUserAppointment`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        userId: localStorage.getItem('userId'), // Replace with a valid User ID
-        date: date,
-        time: time,
-      }),
-    });
+    
+
+      const res = await fetch(`${API}/api/userAppointment/addUserAppointment`, {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: localStorage.getItem('userId'), // Replace with a valid User ID
+          date: date.toLocaleDateString("en-GB"),
+          time: time,
+        }),
+      });
     try {
       const de = await res.json();
       console.log(de);
     } catch (error) {
       console.error(error);
     }
+  
   };
 
   return (
@@ -151,13 +165,10 @@ const Book_Appointment = () => {
             <div id="DRP_line"></div>
 
             <div className="info_doc_Add">
-              <input
-                type="date"
-                id="date"
-                style={{ margin: "0 1rem" }}
-                onChange={(e) => setDate(e.target.value)}
-              />
-              {date} ,{time}
+              <DatePicker selected={date} minDate={minDate} onChange={(d)=>setDate(d)} placeholderText="Select a date" dateFormat="dd MMM yyyy" // Set the date format
+        locale="en-GB"  />
+              {/* {date}  */}
+              ,{time}
             </div>
             <div className="info_doc_Add">Morning ({morning.length}Slots)</div>
             <div className="slots">

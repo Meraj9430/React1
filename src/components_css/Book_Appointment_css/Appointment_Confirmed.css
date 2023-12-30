@@ -15,6 +15,7 @@
 }
 .appoint_card_call{
     border-radius: 0.3125rem;
+    cursor: pointer;
     background: #005473;
     display: inline-flex;
     padding: 0.375rem 0.5rem;
@@ -40,7 +41,7 @@
 .appoint_doc_img{
     width: 4.09713rem;
     height: 4.09713rem;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 100%;
     overflow: hidden;
 }

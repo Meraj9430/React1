@@ -5,7 +5,10 @@ import Vectory from "../../../assets/FindDoctors/calendar.svg";
 import Time from "../../../assets/FindDoctors/Time.svg";
 import Conf from "../../../assets/FindDoctors/Conf.svg";
 import { useState } from "react";
+import { registerLocale } from "react-datepicker";
+import enGB from "date-fns/locale/en-GB";
 
+registerLocale("en-GB", enGB);
 const Appointment_Confirmed = ({
   appointmentId,
   docInfo,
@@ -42,7 +45,7 @@ const Appointment_Confirmed = ({
                       style={{ width: " 0.6875rem", height: "0.6875rem" }}
                       alt=""
                     />
-                    <span className="appoint_card_date"> {date}</span>
+                    <span className="appoint_card_date"> {date.toLocaleDateString("en-GB")}</span>
                   </div>
                   <div
                     style={{
