@@ -9,6 +9,8 @@ import Category from "./Category";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import User from "./pages/User";
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
   const API = import.meta.env.VITE_API;
@@ -25,11 +27,16 @@ const Navbar = () => {
     setSign(false);
   };
   const handleLogout = () => {
+    toast.success("Logout Successfull", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 8000
+    });
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     // setLogout(false);
     setview(true);
-    alert("Logout Successfull");
+    // notify()
+    // alert("Logout Successfull");
     // Navgator("/");
   };
   
@@ -39,12 +46,13 @@ const Navbar = () => {
       const res = await fetch(`${API}/api/userSignup_login/getUserById/${v}`)
       const info = await res.json();
       setUserinfo(info.result)
-      setMenu(!menu)
+      setMenu(true)
       console.log(info)
     } catch (error) {
       console.log(error)
     }
   }
+ 
   return (
     <>
       <div>
@@ -107,11 +115,11 @@ const Navbar = () => {
                   <p onClick={() => setview(true)}>Login</p>
                 </div>
               ) : (
-                <div onClick={userinfo}>
+                <div onMouseEnter={userinfo}>
                   <img src={user} alt="" />
                 </div>
               )}
-              {menu && <User setview={setview} userInfo={userInfo}/>}
+              {menu && <User setview={setview} userInfo={userInfo} setMenu={setMenu}/>}
             </div>
             {toggle && (
               <div id="mobile-menu">
@@ -213,6 +221,7 @@ const Navbar = () => {
       {sign && (
         <Signup close={closesignup} setview={setview} setSign={setSign} />
       )}
+      <ToastContainer />
     </>
   );
 };

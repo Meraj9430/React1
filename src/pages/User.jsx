@@ -3,19 +3,25 @@
 import user from "../assets/Group 3149.png";
 import "../Pages_css/User.css";
 import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 // import { useEffect,useState } from "react";
-const User = ({ setLogout, setview,userInfo }) => {
+const User = ({ setLogout, setview,userInfo,setMenu }) => {
   const Navgator = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
-    alert("Logout Successfull");
+    // alert("Logout Successfull");
     Navgator("/");
+    toast.success("Logout Successfull", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 8000
+    });
     setLogout(false);
     setview(true);
   };
   return (
-    <div className="User_box">
+    <div className="User_box" onMouseLeave={()=>setMenu(false)}>
       <div id="User_List">
         <div className="User_List_header">
           <div id="User_List_img">
@@ -28,7 +34,7 @@ const User = ({ setLogout, setview,userInfo }) => {
         </div>
         <div id="User_List_Link">
           <ul>
-            <Link className="User_Link">
+            <Link className="User_Link" to='User/My_Appointment'>
               <li>My Appointment</li>
             </Link>
             <Link className="User_Link">
@@ -55,6 +61,7 @@ const User = ({ setLogout, setview,userInfo }) => {
           </ul>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

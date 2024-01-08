@@ -78,21 +78,12 @@ const Signup = ({ close, setview, setSign }) => {
                     type="text"
                     value={input.FirstName}
                     name="FirstName"
-                    placeholder="First Name*"
+                    placeholder="Name*"
                     onChange={handlechang}
                     required
                   />
                 </div>
-                <div className="login_input">
-                  <input
-                    type="text"
-                    name="LastName"
-                    value={input.LastName}
-                    placeholder="Last Name*"
-                    onChange={handlechang}
-                    required
-                  />
-                </div>
+                
                 <div className="login_input">
                   <input
                     type="text"
@@ -133,15 +124,7 @@ const Signup = ({ close, setview, setSign }) => {
                     required
                   />
                 </div>
-                <div className="login_input">
-                  <input
-                    type="text"
-                    placeholder="Referral"
-                    name="Referral"
-                    value={input.Referral}
-                    onChange={handlechang}
-                  />
-                </div>
+                
                 <button type="submit" className="login_btn">
                   Sing Up👋
                 </button>

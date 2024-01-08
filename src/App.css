@@ -146,7 +146,7 @@
 }
 
 #search input {
-  width: 80%;
+  width: 70%;
   height: 25.5px;
   flex-shrink: 0;
   margin-left: 30px;
@@ -229,6 +229,10 @@
   
 
 }
+#menu ul li:hover{
+  color: black;
+}
+
 .navlist{
   text-decoration: none;
 
@@ -250,6 +254,10 @@
   letter-spacing: -0.02rem;
   outline: none;
   border: none;
+  transition: all 1s ease;
+}
+.login_btn:hover{
+  background-color: #434141;
 }
 .login_btn p{
   color: var(--Basic-White, #FFF);

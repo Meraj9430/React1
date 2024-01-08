@@ -121,12 +121,13 @@
     background: var(--Basic-White, #FFF);
 }
 .home_container{
-    width: 100vw;
-    margin: 2rem 0;
-    height: auto;
+
+    /* width: 100vw; */
+    margin: 2rem ;
+    /* height: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
 }
 .home_container img{
     width: 88vw;

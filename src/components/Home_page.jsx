@@ -16,6 +16,7 @@ import slider3 from "../assets/Home/Group 3067.png";
 // import doc from "../assets/Home/image50.png";
 import "../components_css/Home_page.css";
 // import { useEffect,useState } from "react";
+import Crousel from "./sub_components/Crousel";
 
 const Home_page = () => {
   // const [IM,setIMG]=useState([])
@@ -23,17 +24,17 @@ const Home_page = () => {
   // useEffect(()=>{
   //   fetch(`${API}/api/image/getImage`).then(res => setIMG(res.data)).catch(err => console.log(err))
   // },[])
-  const IMG =[
-    {
-      img:slider1
-    },
-    {
-      img:slider2
-    },
-    {
-      img:slider3
-    },
-  ]
+  // const IMG = [
+  //   {
+  //     img: slider1,
+  //   },
+  //   {
+  //     img: slider2,
+  //   },
+  //   {
+  //     img: slider3,
+  //   },
+  // ];
   return (
     <>
       <div className="Home_page">
@@ -105,14 +106,12 @@ const Home_page = () => {
             </div>
           </div>
         </div>
-        {
-          IMG.map((e,i)=>(
-            <div key={i} className="home_container">
-              <img src={e.img} alt="" />
-            
-          </div>
-          ))
-        }
+        {/* <Crousel img={slider1} img2={slider2} img3={slider3}/> */}
+
+        <div className="home_container">
+          <Crousel img={slider1} img2={slider2} img3={slider3} />
+        </div>
+
         {/* <img src={IM[0].photo} alt="" /> */}
       </div>
     </>

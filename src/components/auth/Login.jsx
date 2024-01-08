@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import "../../components_css/auth/Login.css";
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = ({ close, setview, setSign }) => {
   const API = import.meta.env.VITE_API;
@@ -29,9 +31,10 @@ const Login = ({ close, setview, setSign }) => {
       [e.target.name]: e.target.value,
     }));
   };
-
+  
   const formsubmit = async (e) => {
     e.preventDefault();
+    // notify()
     // console.log(data)
     // dispatch(UserAuth(data))
     const res = await fetch(`${API}/api/userSignup_login/Userlogin`, {
@@ -45,10 +48,15 @@ const Login = ({ close, setview, setSign }) => {
     });
     const deta = await res.json();
     console.log(deta);
+    toast.success("Logged in Successfully", {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 8000
+    });
     localStorage.setItem("token", deta.user.token);
     localStorage.setItem("userId", deta.user.userId);
     setview(false);
-    alert(`Logged in Successfully`);
+    // alert(`Logged in Successfully`);
+    
     // if (deta.success) {
     //   localStorage.setItem("token", deta.user.token);
     //   localStorage.setItem("userId", deta.user.userId);
@@ -70,6 +78,12 @@ const Login = ({ close, setview, setSign }) => {
     // getUserInfo()
     // dispatch(addUser(deta))
   };
+  // const notify = () => {
+  //   toast.success("Logged in Successfully", {
+  //     position: toast.POSITION.TOP_CENTER,
+  //     autoClose: 20000
+  //   });
+  // }
   return (
     <div>
       <div className="modalback">
@@ -122,6 +136,7 @@ const Login = ({ close, setview, setSign }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

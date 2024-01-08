@@ -44,7 +44,7 @@
     justify-content: space-between;
 }
 .fd_input{
-    width: 31.3125rem;
+    width: 31vw;
     height: 2.625rem;
     border-radius: 1.19531rem;
     border: 0.562px solid #005473;
@@ -75,7 +75,13 @@
     font-size: 1.3125rem;
     font-style: normal;
     font-weight: 500;
+    cursor: pointer;
     line-height: normal;
+    transition: all 1s ease;
+}
+#fd_btn:hover{
+    color: #005473;
+    background-color: #ffffffdb;
 }
 #fd_doc_img{
     position: relative;
@@ -86,8 +92,8 @@
 #fd_doc_img img{
     position: absolute;
     left: 0%;
-    width: 470px;
-    height: 350px;
+    width: 25vw;
+    height: auto;
     bottom: 0;
 }
 .fd_form{
@@ -283,14 +289,19 @@
     border-radius: 0.8125rem;
     display: flex;
     align-items: center;
+    transition: all .5s ease 0;
     justify-content: space-evenly;
     background: radial-gradient(182.7% 134.21% at 97.4% 6.15%, rgba(52, 83, 129, 0.44) 0%, #378493 26.04%, #146480 49.48%, #42869E 69.27%, rgba(30, 71, 85, 0.74) 87.5%, rgba(236, 250, 252, 0.85) 100%);
+}
+.info_btn:hover{
+    background: #005473;
 }
 .info_back_btn{
     width: 28rem;
     display: flex;
     align-items: center;
     justify-content: end;
+    
 }
 .info_Appointment{
     color: var(--Basic-White, #FFF);
@@ -361,6 +372,12 @@
     align-items: center;
     justify-content: center;
     margin-top: 2.5rem;
+    overflow: hidden;
+    
+}
+.info_back span:hover{
+    background-color: #005473;
+    color: #fff;
 }
 .info_back span{
     color: #005473;
@@ -369,6 +386,10 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: all .5s ease;
   
 }
 .doc_info_btn{

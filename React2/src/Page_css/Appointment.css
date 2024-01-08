@@ -1,0 +1,94 @@
+.Appointment_header{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+}
+
+.Appo_table_body{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: #42869E;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.Ap_table_box{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5vw;
+    border: 1px solid black;
+    color: #ffff;
+}
+.Appointment_info{
+    width: 100%;
+    height: auto;
+}
+.Appointment_info_header{
+    width: 43.9375rem;
+    height: 6.25rem;
+    border-radius: 1.1875rem;
+    background: #378493;
+    box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--Basic-White, #FFF);
+    font-family: Inria Serif;
+    font-size: 2.3vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 1rem;
+}
+.Appointment_name{
+    color: #000;
+    font-family: Inria Serif;
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 1rem;
+}
+.Appointment_btn{
+    width: 12.8125rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    background: radial-gradient(182.7% 134.21% at 97.4% 6.15%, rgba(52, 83, 129, 0.44) 0%, #378493 26.04%, #146480 49.48%, #42869E 69.27%, rgba(30, 71, 85, 0.74) 87.5%, rgba(236, 250, 252, 0.85) 100%);
+    color: var(--Basic-White, #FFF);
+    font-family: Inria Serif;
+    font-size: 1.4375rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+}
+.Prescription_img{
+    margin: 1rem;
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    overflow: hidden;
+    border-radius: 10px;
+}
+@media screen and (max-width: 768px) {
+    .userinfo_text{
+        font-size: 5vw;
+    }
+    .userinfo_card{
+        width: 60%;
+    }
+    .Appointment_info_header{
+        width: 90%;
+        font-size: larger;
+        height: 2rem;
+    }
+}

@@ -7,8 +7,8 @@ import phon2 from "../assets/FindDoctors/Screenshot__89_-removebg-preview.png";
 import location from "../assets/location.svg";
 import search from "../assets/Path 26.png";
 import down from "../assets/FindDoctors/UpArro.svg";
-import { useState, useEffect,useContext } from "react";
-import Appcontext from "../app/context/Appcontext";
+import { useState, useEffect } from "react";
+// import Appcontext from "../app/context/Appcontext";
 // import Doctor_list from "./sub_components/Doctor_list";
 // import axios from "axios";
 import Doctor_info from "./sub_components/sub2_components/Doctor_info";
@@ -46,7 +46,7 @@ const Find_doctors = () => {
   const [toggle, setToggle] = useState(false);
   const [comptoggle, setComtoggle] = useState(true);
   const [doctorDeta, setDoctorDeta] = useState([]);
-  const {z}= useContext(Appcontext)
+  // const {z}= useContext(Appcontext)
 
   let searchResult = arr.filter((item) => {
     return item.toLowerCase().includes(deta.toLowerCase());
@@ -81,10 +81,10 @@ const Find_doctors = () => {
         <div className="Doc_reg_form">
           <div className="main">
             <div id="header">
-              <span>FIND YOUR DOCTOR AND BOOK {z} </span>
+              <span>FIND YOUR DOCTOR AND BOOK </span>
             </div>
           </div>
-          <div id="FD_box">
+          <div id="FD_box" >
             <div id="fd_item">
               <div id="fd_head">
                 <div id="fd_header">

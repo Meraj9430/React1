@@ -23,6 +23,8 @@ import Refer_Patient from "./pages/Refer_Patient.jsx";
 import Login from "./components/auth/Login.jsx";
 import Login_otp from "./components/auth/Login_otp.jsx";
 import Set_time_day from "./pages/Set_time_day.jsx";
+import Appointment from "./pages/Appointment.jsx";
+import User_info from "./components/User_info.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,6 +43,8 @@ const router = createBrowserRouter(
         <Route path="Payment" element={<Payment />} />
         <Route path="Refer_Earn" element={<Refer_Earn />} />
         <Route path="Settings" element={<Settings />} />
+        <Route path="Appointment" element={<Appointment/>}/>
+        <Route path="user/:id" element={<User_info/>}/>
       </Route>
       {/* ... etc. */}
     </Route>

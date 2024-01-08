@@ -51,7 +51,7 @@ const Footer = () => {
 
                 <ul className="foot-ul">
                     <div>
-                    <Link className="link" to='/Doc_Registration_form'>
+                    <Link  to='/Doc_Registration_form'>
                         <li> Doc Registration form</li>
                     </Link>
                         <li>Doc Search consult</li>

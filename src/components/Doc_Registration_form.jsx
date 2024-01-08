@@ -145,14 +145,14 @@ const Doc_Registration_form = () => {
   const [physical_info, setPhysical_info] = useState("");
   const [virtual, setVirtual] = useState("");
   const [pass, setPass] = useState("");
-  const [day, setday] = useState([]);
+  const [day, setday] = useState({arr:[]});
   const [startTime, setStarttime] = useState("");
   const [endTime, setEndtime] = useState("");
   const [fee, setFee] = useState("");
   const [tinterval, settinterval] = useState("");
-  const [morning, setMorning] = useState([]);
-  const [after, setAfternoon] = useState([]);
-  const [eve, setEvening] = useState([]);
+  const [morning, setMorning] = useState({arr:[]});
+  const [after, setAfternoon] = useState({arr:[]});
+  const [eve, setEvening] = useState({arr:[]});
   const [Photo, setPhoto] = useState(null);
   const [Photo2, setPhoto2] = useState(null);
   const [Photo3, setPhoto3] = useState(null);
@@ -161,22 +161,37 @@ const Doc_Registration_form = () => {
   const [loader, setLoader] = useState(false);
 
   const handileday = (e) => {
-    if (day.length <= 6) {
-      const arr = [...day, e];
-      setday(arr);
+    if (day.arr.length <= 6) {
+      const add =e;
+      setday(prevState =>({
+      ...prevState,
+      arr:[...prevState.arr,add]
+    }))
     }
   };
   const handile_mor = (e) => {
-    const arr = [...morning, e];
-    setMorning(arr);
+    // const arr = [...morning, e];
+    const add =e;
+    setMorning(prevState =>({
+      ...prevState,
+      arr:[...prevState.arr,add]
+    }))
+    // setMorning(arr);
   };
+  console.log(day.arr)
   const handile_after = (e) => {
-    const arr = [...after, e];
-    setAfternoon(arr);
+    const add =e;
+    setAfternoon(prevState =>({
+      ...prevState,
+      arr:[...prevState.arr,add]
+    }))
   };
   const handile_evening = (e) => {
-    const arr = [...eve, e];
-    setEvening(arr);
+    const add =e;
+    setEvening(prevState =>({
+      ...prevState,
+      arr:[...prevState.arr,add]
+    }))
   };
 
   const submitForm = async (e) => {
@@ -204,14 +219,14 @@ const Doc_Registration_form = () => {
       det.append("physical_info", physical_info);
       det.append("virtual", virtual);
       det.append("password", pass);
-      det.append("days", day);
+      det.append("days", day.arr);
       det.append("start_time", startTime);
       det.append("end_time", endTime);
       det.append("fee", fee);
       det.append("interval", tinterval);
-      det.append("morning", morning);
-      det.append("afternoon", after);
-      det.append("evening", eve);
+      det.append("morning", morning.arr);
+      det.append("afternoon", after.arr);
+      det.append("evening", eve.arr);
       det.append("Photo", Photo);
       det.append("Photo2", Photo2);
       det.append("Photo3", Photo3);
@@ -572,7 +587,7 @@ const Doc_Registration_form = () => {
                 </div>
                 <div className="Doc_box">
                   <label htmlFor="Mobile No">
-                    Day<span>*</span>{day.map((e=>(<span style={{color:'black'}} key={e}>{e},</span>)))}
+                    Day<span>*</span>{day.arr.map((e=>(<span style={{color:'black'}} key={e}>{e},</span>)))}
                   </label>
                   <div className="Doc_input_box">
                     <select
@@ -635,7 +650,7 @@ const Doc_Registration_form = () => {
                 </div>
                 <div className="Doc_box">
                   <label htmlFor="Mobile No">
-                    Morning<span>*</span>{morning.map((e=>(<span style={{color:'black'}} key={e}>{e} , </span>)))}
+                    Morning<span>*</span>{morning.arr.map((e=>(<span style={{color:'black'}} key={e}>{e} , </span>)))}
                   </label>
                   <div className="Doc_input_box">
                     <select
@@ -656,7 +671,7 @@ const Doc_Registration_form = () => {
                 </div>
                 <div className="Doc_box">
                   <label htmlFor="Email Address">
-                    Afternoon <span>*</span>{after.map((e=>(<span style={{color:'black'}} key={e}>{e} , </span>)))}
+                    Afternoon <span>*</span>{after.arr.map((e=>(<span style={{color:'black'}} key={e}>{e} , </span>)))}
                   </label>
                   <div className="Doc_input_box">
                     <select
@@ -677,7 +692,7 @@ const Doc_Registration_form = () => {
                 </div>
                 <div className="Doc_box">
                   <label htmlFor="Qualification">
-                    Evening <span>*</span>{eve.map((e=>(<span style={{color:'black'}} key={e}>{e} , </span>)))}
+                    Evening <span>*</span>{eve.arr.map((e=>(<span style={{color:'black'}} key={e}>{e} , </span>)))}
                   </label>
                   <div className="Doc_input_box">
                     <select

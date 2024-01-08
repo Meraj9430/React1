@@ -106,7 +106,10 @@ const Navbar = () => {
           </div>
           <div>
             <ul className="list">
+              <NavLink to='/dashboard/Appointment'>
+
               <li>Appointment</li>
+              </NavLink>
               <li>Medicines</li>
               <li>Labs test</li>
               <li>Hospital</li>
