@@ -6,9 +6,11 @@ import twi from "./assets/twitter.svg"
 import appStore from "./assets/AppStore.svg"
 import play from "./assets/PlayStore.svg"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 
 const Footer = () => {
+    const Navigate = useNavigate();
   return (
     <footer>
     <div id="footer-body">
@@ -51,10 +53,10 @@ const Footer = () => {
 
                 <ul className="foot-ul">
                     <div>
-                    <Link  to='/Doc_Registration_form'>
+                    <Link  to='/Doc_Registration_form' >
                         <li> Doc Registration form</li>
                     </Link>
-                        <li>Doc Search consult</li>
+                        <li >Doc Search consult</li>
                         <li>Doc Search health feed</li>
                         <li>Doc Dearch profile</li>
                     </div>

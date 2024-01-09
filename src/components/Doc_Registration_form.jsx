@@ -1,11 +1,12 @@
 /* eslint-disable react-refresh/only-export-components */
 // import React from 'react'
 import "../components_css/Doc_Registration_form.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import axios from "axios";
 import FormData from "form-data";
 import Loader from "./sub_components/Loader";
 import { useNavigate } from "react-router-dom";
+import PasswordChecklist from "react-password-checklist";
 
 const arr = [
   "Dermatology",
@@ -145,14 +146,14 @@ const Doc_Registration_form = () => {
   const [physical_info, setPhysical_info] = useState("");
   const [virtual, setVirtual] = useState("");
   const [pass, setPass] = useState("");
-  const [day, setday] = useState({arr:[]});
+  const [day, setday] = useState({ arr: [] });
   const [startTime, setStarttime] = useState("");
   const [endTime, setEndtime] = useState("");
   const [fee, setFee] = useState("");
   const [tinterval, settinterval] = useState("");
-  const [morning, setMorning] = useState({arr:[]});
-  const [after, setAfternoon] = useState({arr:[]});
-  const [eve, setEvening] = useState({arr:[]});
+  const [morning, setMorning] = useState({ arr: [] });
+  const [after, setAfternoon] = useState({ arr: [] });
+  const [eve, setEvening] = useState({ arr: [] });
   const [Photo, setPhoto] = useState(null);
   const [Photo2, setPhoto2] = useState(null);
   const [Photo3, setPhoto3] = useState(null);
@@ -160,38 +161,42 @@ const Doc_Registration_form = () => {
   // const [Photo5, setPhoto5] = useState(null);
   const [loader, setLoader] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handileday = (e) => {
     if (day.arr.length <= 6) {
-      const add =e;
-      setday(prevState =>({
-      ...prevState,
-      arr:[...prevState.arr,add]
-    }))
+      const add = e;
+      setday((prevState) => ({
+        ...prevState,
+        arr: [...prevState.arr, add],
+      }));
     }
   };
   const handile_mor = (e) => {
     // const arr = [...morning, e];
-    const add =e;
-    setMorning(prevState =>({
+    const add = e;
+    setMorning((prevState) => ({
       ...prevState,
-      arr:[...prevState.arr,add]
-    }))
+      arr: [...prevState.arr, add],
+    }));
     // setMorning(arr);
   };
-  console.log(day.arr)
+  console.log(day.arr);
   const handile_after = (e) => {
-    const add =e;
-    setAfternoon(prevState =>({
+    const add = e;
+    setAfternoon((prevState) => ({
       ...prevState,
-      arr:[...prevState.arr,add]
-    }))
+      arr: [...prevState.arr, add],
+    }));
   };
   const handile_evening = (e) => {
-    const add =e;
-    setEvening(prevState =>({
+    const add = e;
+    setEvening((prevState) => ({
       ...prevState,
-      arr:[...prevState.arr,add]
-    }))
+      arr: [...prevState.arr, add],
+    }));
   };
 
   const submitForm = async (e) => {
@@ -307,7 +312,7 @@ const Doc_Registration_form = () => {
                       value={mobile}
                       onChange={(e) => setMobile(e.target.value)}
                       id="name"
-                      type="text"
+                      type="number"
                       required
                     />
                   </div>
@@ -341,19 +346,6 @@ const Doc_Registration_form = () => {
                   </div>
                 </div>
 
-                <div className="Doc_box">
-                  <label htmlFor="Experience">
-                    Password <span>*</span>
-                  </label>
-                  <div className="Doc_input_box">
-                    <input
-                      type="text"
-                      value={pass}
-                      onChange={(e) => setPass(e.target.value)}
-                      required
-                    />
-                  </div>
-                </div>
                 <div className="Doc_box">
                   <label htmlFor="Qualification">
                     Qualification <span>*</span>
@@ -461,6 +453,25 @@ const Doc_Registration_form = () => {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="Doc_box">
+              <label htmlFor="Experience">
+                Password <span>*</span>
+              </label>
+              <div className="Doc_input_box">
+                <input
+                  type="text"
+                  value={pass}
+                  onChange={(e) => setPass(e.target.value)}
+                  required
+                />
+              </div>
+              <PasswordChecklist
+                rules={["minLength", "specialChar", "number", "capital"]}
+                minLength={8}
+                value={pass}
+                // valueAgain={passwordAgain}
+              />
             </div>
             <div id="DRP_line"></div>
             <div>
@@ -587,11 +598,15 @@ const Doc_Registration_form = () => {
                 </div>
                 <div className="Doc_box">
                   <label htmlFor="Mobile No">
-                    Day<span>*</span>{day.arr.map((e=>(<span style={{color:'black'}} key={e}>{e},</span>)))}
+                    Day<span>*</span>
+                    {day.arr.map((e) => (
+                      <span style={{ color: "black" }} key={e}>
+                        {e},
+                      </span>
+                    ))}
                   </label>
                   <div className="Doc_input_box">
                     <select
-                      
                       onChange={(e) => handileday(e.target.value)}
                       name=""
                       id=""
@@ -612,7 +627,6 @@ const Doc_Registration_form = () => {
                   </label>
                   <div className="Doc_input_box">
                     <select
-                      
                       onChange={(e) => setStarttime(e.target.value)}
                       name=""
                       id=""
@@ -633,7 +647,6 @@ const Doc_Registration_form = () => {
                   </label>
                   <div className="Doc_input_box">
                     <select
-                      
                       onChange={(e) => setEndtime(e.target.value)}
                       name=""
                       id=""
@@ -650,11 +663,15 @@ const Doc_Registration_form = () => {
                 </div>
                 <div className="Doc_box">
                   <label htmlFor="Mobile No">
-                    Morning<span>*</span>{morning.arr.map((e=>(<span style={{color:'black'}} key={e}>{e} , </span>)))}
+                    Morning<span>*</span>
+                    {morning.arr.map((e) => (
+                      <span style={{ color: "black" }} key={e}>
+                        {e} ,{" "}
+                      </span>
+                    ))}
                   </label>
                   <div className="Doc_input_box">
                     <select
-                     
                       onChange={(e) => handile_mor(e.target.value)}
                       name=""
                       id=""
@@ -671,11 +688,15 @@ const Doc_Registration_form = () => {
                 </div>
                 <div className="Doc_box">
                   <label htmlFor="Email Address">
-                    Afternoon <span>*</span>{after.arr.map((e=>(<span style={{color:'black'}} key={e}>{e} , </span>)))}
+                    Afternoon <span>*</span>
+                    {after.arr.map((e) => (
+                      <span style={{ color: "black" }} key={e}>
+                        {e} ,{" "}
+                      </span>
+                    ))}
                   </label>
                   <div className="Doc_input_box">
                     <select
-                      
                       onChange={(e) => handile_after(e.target.value)}
                       name=""
                       id=""
@@ -692,11 +713,15 @@ const Doc_Registration_form = () => {
                 </div>
                 <div className="Doc_box">
                   <label htmlFor="Qualification">
-                    Evening <span>*</span>{eve.arr.map((e=>(<span style={{color:'black'}} key={e}>{e} , </span>)))}
+                    Evening <span>*</span>
+                    {eve.arr.map((e) => (
+                      <span style={{ color: "black" }} key={e}>
+                        {e} ,{" "}
+                      </span>
+                    ))}
                   </label>
                   <div className="Doc_input_box">
                     <select
-                      
                       onChange={(e) => handile_evening(e.target.value)}
                       name=""
                       id=""
@@ -717,7 +742,6 @@ const Doc_Registration_form = () => {
                   </label>
                   <div className="Doc_input_box">
                     <select
-    
                       onChange={(e) => settinterval(e.target.value)}
                       name=""
                       id=""
@@ -821,12 +845,11 @@ const Doc_Registration_form = () => {
               <div className="DRP_form_deta">
                 <div className="Doc_box">
                   <label htmlFor="name">
-                    Medical Registration Proof <span>*</span>
+                    Medical Registration Proof 
                   </label>
                   <div className="Doc_input_box">
                     <div>
                       <input
-                        required
                         type="file"
                         name=""
                         id="MRP"
@@ -837,7 +860,7 @@ const Doc_Registration_form = () => {
                 </div>
                 <div className="Doc_box">
                   <label htmlFor="Mobile No">
-                    Degree Proof<span>*</span>
+                    Degree Proof
                   </label>
                   <div className="Doc_input_box">
                     <div>
@@ -845,7 +868,7 @@ const Doc_Registration_form = () => {
                         type="file"
                         name=""
                         id="DP"
-                        required
+                        // required
                         onChange={(e) => setPhoto3(e.target.files[0])}
                       />
                     </div>
@@ -853,7 +876,7 @@ const Doc_Registration_form = () => {
                 </div>
                 <div className="Doc_box">
                   <label htmlFor="Email Address">
-                    Govt-Issued Photo ID Proof* <span>*</span>
+                    Govt-Issued Photo ID Proof 
                   </label>
                   <div className="Doc_input_box">
                     <div>
@@ -861,7 +884,7 @@ const Doc_Registration_form = () => {
                         id="ID"
                         type="file"
                         name=""
-                        required
+                        // required
                         onChange={(e) => setPhoto4(e.target.files[0])}
                       />
                     </div>

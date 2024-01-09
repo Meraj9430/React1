@@ -38,6 +38,9 @@ const Home_page = () => {
   return (
     <>
       <div className="Home_page">
+        <div style={{width:"100%",display:'flex',alignItems:'center',justifyContent:'center'}}>
+
+        
         <div className="Home_header">
           <div className="Header_left">
             <div className="H_L_T">
@@ -62,6 +65,7 @@ const Home_page = () => {
               <img src={doctor} alt="IMG" />
             </div>
           </div>
+        </div>
         </div>
         <div className="header_box">
           <div className="Header_item">
