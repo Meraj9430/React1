@@ -396,7 +396,7 @@ const Doc_Registration_form = () => {
                   <div className="Doc_input_box">
                     <input
                       id="name"
-                      type="text"
+                      type="number"
                       value={experience}
                       onChange={(e) => setExperience(e.target.value)}
                       required
@@ -431,7 +431,7 @@ const Doc_Registration_form = () => {
                       value={age}
                       onChange={(e) => setAge(e.target.value)}
                       id="name"
-                      type="text"
+                      type="number"
                       required
                     />
                   </div>
@@ -560,7 +560,7 @@ const Doc_Registration_form = () => {
                       value={pincode}
                       onChange={(e) => setPincode(e.target.value)}
                       id="name"
-                      type="text"
+                      type="number"
                       required
                     />
                   </div>
@@ -578,7 +578,7 @@ const Doc_Registration_form = () => {
                   <div className="Doc_input_box">
                     <input
                       id="name"
-                      type="text"
+                      type="number"
                       value={fee}
                       onChange={(e) => setFee(e.target.value)}
                       required
@@ -743,7 +743,7 @@ const Doc_Registration_form = () => {
                   <div className="Doc_input_box">
                     <input
                       id="name"
-                      type="text"
+                      type="number"
                       value={extra_mobile}
                       onChange={(e) => setExtra_mobile(e.target.value)}
                     />

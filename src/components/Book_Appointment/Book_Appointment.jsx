@@ -63,30 +63,30 @@ const Book_Appointment = () => {
           autoClose: 20000
         });
       }else{
-        getAppointmentId();
+        // getAppointmentId();
         sendAppointdeta();
         setToggle(true);
        }
     
   };
-  const getAppointmentId = async () => {
-    const res = await fetch(`${API}/api/doctor/updateDoctor/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        // userId: localStorage.getItem('userId'), // Replace with a valid User ID
-        // date: date.toLocaleDateString("en-GB"),
-        // time: time,
-      }),
-    });
-    try {
-      const de = await res.json();
-      setAppointmentId(de.appointmentId)
-      // console.log(de);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const getAppointmentId = async () => {
+  //   const res = await fetch(`${API}/api/doctor/updateDoctor/${id}`, {
+  //     method: "PUT",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({
+  //       // userId: localStorage.getItem('userId'), // Replace with a valid User ID
+  //       // date: date.toLocaleDateString("en-GB"),
+  //       // time: time,
+  //     }),
+  //   });
+  //   try {
+  //     const de = await res.json();
+  //     setAppointmentId(de.appointmentId)
+  //     // console.log(de);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
   const sendAppointdeta = async () => {
       const res = await fetch(`${API}/api/userAppointment/addUserAppointment`, {
         method: "post",
@@ -100,6 +100,7 @@ const Book_Appointment = () => {
     try {
       const de = await res.json();
       console.log(de);
+      setAppointmentId(de.data.userAppointmentId)
     } catch (error) {
       console.error(error);
     }

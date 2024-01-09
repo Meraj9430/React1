@@ -15,6 +15,7 @@ const My_Appointment = () => {
     try {
       const d =await res.json()
       if (d.success) {
+        console.log(d.data)
         setAppointment(d.data)
       }
     } catch (error) {
