@@ -31,10 +31,11 @@ const Crousel = ({img,img2,img3}) => {
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
+        style={{width:'85%'}}
       >
         
-        <SwiperSlide><img style={{width:'100%'}} src={img} alt="" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src={img2} alt="" /></SwiperSlide>
+        <SwiperSlide ><img style={{width:'100%'}} src={img} alt="" /></SwiperSlide>
+        <SwiperSlide ><img style={{width:'100%'}} src={img2} alt="" /></SwiperSlide>
         <SwiperSlide><img style={{width:'100%'}} src={img3} alt="" /></SwiperSlide>
         
       </Swiper>
